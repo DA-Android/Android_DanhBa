@@ -1,33 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:orientation="vertical"
+    android:background="@android:color/background_light"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="this just is the MAIN..!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp">
 
-        android:layout_gravity="center|left"/>
+        <TextView
+            android:id="@+id/contanct"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/background_light"
+            android:text="Contanct"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="50dp" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="101dp"
-        android:layout_height="65dp"
-        android:autoSizeTextType="none"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="241dp"
+        <ImageButton
+            android:id="@+id/them"
+            android:layout_width="69dp"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/contanct"
+            android:layout_alignEnd="@+id/contanct"
+            android:background="@android:color/background_light"
+            android:src="@android:drawable/ic_input_add" />
 
-        android:layout_gravity="center"/>
+    </RelativeLayout>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/duongvientron">
+
+        <SearchView
+            android:layout_width="50dp"
+            android:layout_height="60dp">
+        </SearchView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:inputType="textCapWords"
+            android:hint="SEARCH NAME"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FF49813E">
+
+        <ListView
+            android:id="@+id/mycard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/danhsach"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="20dp"
+            android:fastScrollEnabled="true"
+            android:transitionGroup="true"
+            />
+    </TableLayout>
+
+
+
+
+
+</LinearLayout>
