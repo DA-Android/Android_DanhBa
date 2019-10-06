@@ -9,6 +9,7 @@
     <string name="address">Address</string>
     <string name="date">Date</string>
     <string name="cancel">Cancel</string>
+    <string name="contacts">Contacts</string>
 
 
 </resources>

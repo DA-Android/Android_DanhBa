@@ -10,10 +10,12 @@ import android.widget.Button;
 import java.util.IdentityHashMap;
 import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btn1;
+
+    private ImageButton btn1;
 
 
     SQLite sqLite;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //btn1 =findViewById(R.id.button1);
+        btn1 =findViewById(R.id.suaxoa);
 
         sqLite =new SQLite(this,"ltdd_database",null,1);
 

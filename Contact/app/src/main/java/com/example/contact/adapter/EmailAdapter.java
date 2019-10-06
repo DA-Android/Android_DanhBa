@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,29 +21,44 @@ import com.example.contact.model.EmailContact;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmailAdapter extends ArrayAdapter<EmailContact> {
+public class EmailAdapter extends BaseAdapter {
 
     private Context context;
-    private int resource;
+    LayoutInflater layoutInflater;
     private List<EmailContact> arrayEmailContact;
 
-    public EmailAdapter(@NonNull Context context, int resource, @NonNull List<EmailContact> objects) {
-        super(context, resource, objects);
-
+    public EmailAdapter(@NonNull Context context, @NonNull List<EmailContact> objects) {
         this.context=context;
-        this.resource=resource;
         this.arrayEmailContact =objects;
+        layoutInflater=LayoutInflater.from(context);
     }
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-//viewHolder to make a file can hold out list, NO LAG
+    @Override
+    public int getCount() {
+        return arrayEmailContact.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return arrayEmailContact.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ViewHolder viewHolder;
 
         if(convertView == null)
         {
+            convertView= layoutInflater.inflate(R.layout.activity_email_adapter,null);
             viewHolder =new ViewHolder();
-            convertView= LayoutInflater.from(context).inflate(R.layout.activity_email_adapter,parent,false);
+
             viewHolder.edtTextEmail = (EditText) convertView.findViewById(R.id.edtText_email);
+            viewHolder.imgViewEmail= (ImageView) convertView.findViewById(R.id.imgView_email);
+            viewHolder.txtViewEmail= (TextView) convertView.findViewById(R.id.txtView_email);
             convertView.setTag(viewHolder);
         }
         else {
@@ -54,12 +70,9 @@ public class EmailAdapter extends ArrayAdapter<EmailContact> {
 //set------------------------------------------------------------------------
 //set------------------------------------------------------------------------
 
-        viewHolder.imgViewEmail.setBackgroundResource(R.drawable.ic_message);
-        viewHolder.txtViewEmail.setText(R.string.phone);
+        viewHolder.imgViewEmail.setBackgroundResource(emailContact.getImageView());
+        viewHolder.txtViewEmail.setText(emailContact.getTextEMail());
         viewHolder.edtTextEmail.setText(emailContact.getEMail());
-
-
-
 
         return convertView;
     }
