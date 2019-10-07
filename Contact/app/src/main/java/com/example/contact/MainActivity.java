@@ -1,12 +1,9 @@
 package com.example.contact;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import java.util.IdentityHashMap;
 import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
@@ -16,14 +13,16 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btn1;
-
+    private ImageButton btn_them;
 
     SQLite sqLite;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         btn1 =findViewById(R.id.suaxoa);
+        btn_them = findViewById(R.id.them);
 
         sqLite =new SQLite(this,"ltdd_database",null,1);
 
@@ -49,5 +48,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btn_them.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,activity_insert.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
