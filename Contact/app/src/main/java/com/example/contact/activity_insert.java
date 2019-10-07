@@ -50,9 +50,9 @@ public class activity_insert extends AppCompatActivity {
 
 
         actionBar= getSupportActionBar();
-        actionBar.setTitle(getString(R.string.cancel));
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//        actionBar.setTitle(getString(R.string.cancel));
+//        actionBar.setDisplayShowHomeEnabled(true);
+//        actionBar.setDisplayHomeAsUpEnabled(true);
 
         setWidget();
 

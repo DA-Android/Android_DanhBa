@@ -67,9 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-                Object o = listView.getItemAtPosition(position);
-                listitem country = (listitem) o;
-                Toast.makeText(MainActivity.this, "Selected :" + " " + country, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, activity_thongtinchitiet.class);
+                startActivity(intent);
             }
         });
 
