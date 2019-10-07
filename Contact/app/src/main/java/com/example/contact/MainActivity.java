@@ -3,10 +3,10 @@ package com.example.contact;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.accounts.AccountManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,8 +17,15 @@ import android.widget.Toast;
 import com.example.contact.model.CircleImage;
 import com.example.contact.model.CustomListAdapter;
 import com.example.contact.model.listitem;
+import java.util.IdentityHashMap;
+import androidx.appcompat.app.AppCompatActivity;
+import android.database.Cursor;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ImageButton btn1;
     //private Button btn1;
     CircleImage circleImage;
 
@@ -27,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //btn1 =findViewById(R.id.button1);
+        btn1 =findViewById(R.id.suaxoa);
 
 
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(ID INTEGER PRIMARY KEY AUTOINCREMENT, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), COMPANY NVARCHAR(100) )");
@@ -52,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
-
         final List<listitem> image_details = getListData();
         final ListView listView = (ListView) findViewById(R.id.danhsach);
+
         listView.setAdapter(new CustomListAdapter(this, image_details));
 
         // Khi người dùng click vào các ListItem
@@ -72,13 +79,25 @@ public class MainActivity extends AppCompatActivity {
         List<listitem> list = new ArrayList<listitem>();
         String []ten=new String[]{"Vinh","Chánh","Boa","Anh","Ninh","Hoan"};
         Arrays.sort(ten);
-        String images[]={"h1","h2","h3"};
+        String images[]={"h1","h2","h3","h4","h5","h6"};
         for (int i=0;i<ten.length;i++)
         {
-            for(int j=i;j<images.length;j++) {
-                list.add(new listitem(ten[i], images[j]));
-            }
+            list.add(new listitem(ten[i], images[i], ten[i].substring(0,1)));
+//            for(int j=i;j<images.length;j++) {
+//
+//            }
         }
         return list;
+    }
+    private String[] getListDataheader() {
+        List<listitem> list = getListData();
+        int size =getListData().size();
+        String []tend=new String[size];
+        int i;
+        for (i=0;i<size;i++)
+        {
+            tend[i]=list.get(i).getCountryName().toString().substring(0,1);
+        }
+        return tend;
     }
 }

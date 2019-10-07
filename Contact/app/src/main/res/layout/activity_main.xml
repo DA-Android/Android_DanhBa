@@ -23,10 +23,21 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:background="@android:color/background_light"
-            android:text="Contanct"
+            android:text="@string/contacts"
             android:textAlignment="viewStart"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="50dp" />
+
+        <ImageButton
+            android:id="@+id/suaxoa"
+            android:layout_width="69dp"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/contanct"
+            android:layout_alignEnd="@+id/contanct"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="71dp"
+            android:background="@android:color/background_light"
+            android:src="@android:drawable/ic_input_add" />
 
         <ImageButton
             android:id="@+id/them"
@@ -40,21 +51,22 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/duongvientron">
 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/duongvientron">
         <SearchView
-            android:layout_width="50dp"
-            android:layout_height="60dp">
-        </SearchView>
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"></SearchView>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="36dp"
             android:background="@android:color/transparent"
+            android:hint="SEARCH NAME"
             android:inputType="textCapWords"
-            android:hint="SEARCH NAME"/>
+            />
+
 
     </LinearLayout>
     <LinearLayout
