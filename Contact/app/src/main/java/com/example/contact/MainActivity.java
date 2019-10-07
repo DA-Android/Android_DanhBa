@@ -1,9 +1,5 @@
 package com.example.contact;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-
-import android.accounts.AccountManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,24 +13,26 @@ import android.widget.Toast;
 import com.example.contact.model.CircleImage;
 import com.example.contact.model.CustomListAdapter;
 import com.example.contact.model.listitem;
-import java.util.IdentityHashMap;
-import androidx.appcompat.app.AppCompatActivity;
-import android.database.Cursor;
+import android.content.Intent;
 import android.widget.ImageButton;
-import android.widget.Toast;
+import android.app.Activity;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btn1;
     //private Button btn1;
     CircleImage circleImage;
+    private ImageButton btn_them;
 
     SQLite sqLite;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         btn1 =findViewById(R.id.suaxoa);
+        btn_them = findViewById(R.id.them);
 
 
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(ID INTEGER PRIMARY KEY AUTOINCREMENT, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), COMPANY NVARCHAR(100) )");
@@ -74,6 +72,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Selected :" + " " + country, Toast.LENGTH_LONG).show();
             }
         });
+
+        btn_them.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,activity_insert.class);
+                startActivity(intent);
+            }
+        });
+
     }
     private List<listitem> getListData() {
         List<listitem> list = new ArrayList<listitem>();
