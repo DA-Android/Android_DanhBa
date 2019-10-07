@@ -4,6 +4,16 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/txttitle"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:gravity="fill"
+        android:text="ca"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
     <com.example.contact.model.CircleImage
         android:id="@+id/img"
         android:layout_width="60dp"
@@ -26,4 +36,5 @@
             android:text="ly trần" />
 
     </LinearLayout>
+
 </LinearLayout>

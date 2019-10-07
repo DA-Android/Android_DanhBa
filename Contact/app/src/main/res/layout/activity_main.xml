@@ -13,7 +13,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp">
+        android:layout_height="50dp">
 
         <TextView
             android:id="@+id/contanct"
@@ -22,11 +22,11 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:background="@android:color/background_light"
+            android:background="@android:color/white"
             android:text="@string/contacts"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="50dp" />
+            android:gravity="fill"
+            android:textColor="#000000"
+            android:textSize="30dp" />
 
         <ImageButton
             android:id="@+id/suaxoa"
@@ -37,7 +37,7 @@
             android:layout_marginTop="-1dp"
             android:layout_marginEnd="71dp"
             android:background="@android:color/background_light"
-            android:src="@android:drawable/ic_input_add" />
+            android:src="@drawable/them" />
 
         <ImageButton
             android:id="@+id/them"
@@ -46,7 +46,7 @@
             android:layout_alignTop="@+id/contanct"
             android:layout_alignEnd="@+id/contanct"
             android:background="@android:color/background_light"
-            android:src="@android:drawable/ic_input_add" />
+            android:src="@drawable/them" />
 
     </RelativeLayout>
 
@@ -61,23 +61,23 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:background="@android:color/transparent"
+            android:layout_height="match_parent"
+            android:background="#00D19494"
             android:hint="SEARCH NAME"
-            android:inputType="textCapWords"
-            />
+            android:inputType="textCapWords" />
 
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#FF49813E">
+        android:background="@color/colorPrimary">
 
         <ListView
             android:id="@+id/mycard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
     </LinearLayout>
 
     <TableLayout
@@ -90,9 +90,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@android:color/darker_gray"
-            android:dividerHeight="20dp"
+            android:dividerHeight="5dp"
             android:fastScrollEnabled="true"
             android:transitionGroup="true"
+
             />
     </TableLayout>
 

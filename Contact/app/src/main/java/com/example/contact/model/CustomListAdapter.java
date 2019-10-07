@@ -44,17 +44,18 @@ public class CustomListAdapter extends BaseAdapter{
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.listitem, null);
             holder = new ViewHolder();
+            holder.tendau = (TextView) convertView.findViewById(R.id.txttitle);
             holder.flagView = (CircleImage) convertView.findViewById(R.id.img);
             holder.countryNameView = (TextView) convertView.findViewById(R.id.textview_ten);
+
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         listitem country = this.listData.get(position);
+        holder.tendau.setText(country.getTendau());
         holder.countryNameView.setText(country.getCountryName());
-
-
         int imageId = this.getMipmapResIdByName(country.getFlagName());
 
         holder.flagView.setImageResource(imageId);
@@ -72,7 +73,7 @@ public class CustomListAdapter extends BaseAdapter{
     static class ViewHolder {
         CircleImage flagView;
         TextView countryNameView;
-
+        TextView tendau;
     }
 }
 

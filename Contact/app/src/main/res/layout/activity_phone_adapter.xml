@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".adapter.PhoneAdapter">
 
-    <!--    ++++++++++++++++++++++++++Phone++++++++++++++++++++++++++ -->
-
     <ImageView
         android:id="@+id/imgView_phone"
         android:layout_width="25dp"
