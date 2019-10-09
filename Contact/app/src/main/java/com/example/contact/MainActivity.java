@@ -95,15 +95,15 @@ public class MainActivity extends AppCompatActivity {
         }
         return list;
     }
-    private String[] getListDataheader() {
-        List<listitem> list = getListData();
-        int size =getListData().size();
-        String []tend=new String[size];
-        int i;
-        for (i=0;i<size;i++)
-        {
-            tend[i]=list.get(i).getCountryName().toString().substring(0,1);
-        }
-        return tend;
-    }
+//    private String[] getListDataheader() {
+//        List<listitem> list = getListData();
+//        int size =getListData().size();
+//        String []tend=new String[size];
+//        int i;
+//        for (i=0;i<size;i++)
+//        {
+//            tend[i]=list.get(i).getCountryName().toString().substring(0,1);
+//        }
+//        return tend;
+//    }
 }

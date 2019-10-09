@@ -92,8 +92,9 @@
         android:id="@+id/btnDelete"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:background="@drawable/shape"
 
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/shape"
         android:src="@drawable/icdelete"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
