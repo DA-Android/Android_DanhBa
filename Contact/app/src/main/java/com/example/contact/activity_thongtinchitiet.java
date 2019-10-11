@@ -20,8 +20,9 @@ public class activity_thongtinchitiet extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(activity_thongtinchitiet.this,MainActivity.class);
-                startActivity(intent);
+//                Intent intent=new Intent(activity_thongtinchitiet.this,MainActivity.class);
+//                startActivity(intent);
+                onBackPressed();//chỗ này quay lại nhé (Là nó hiển thị lại lần nào nữa đâu nha) !
             }
         });
 
