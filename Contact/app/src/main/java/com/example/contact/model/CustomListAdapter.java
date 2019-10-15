@@ -1,6 +1,8 @@
 package com.example.contact.model;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,17 +15,16 @@ import com.example.contact.R;
 import java.util.List;
 
 public class CustomListAdapter extends BaseAdapter{
-    private List<listitem> listData;
-    private LayoutInflater layoutInflater;
     private Context context;
-
-    public CustomListAdapter(Context aContext, List<listitem> listData) {
-        this.context = aContext;
+    private int layout;
+    private List<people>listData;
+    LayoutInflater inflater;
+    public CustomListAdapter(Context context, int layout, List<people> listData) {
+        this.context = context;
+        this.layout = layout;
         this.listData = listData;
-        layoutInflater = LayoutInflater.from(aContext);
+        inflater= LayoutInflater.from(context);
     }
-
-
 
     @Override
     public int getCount() {
@@ -41,24 +42,34 @@ public class CustomListAdapter extends BaseAdapter{
     }
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.listitem, null);
+        if (convertView == null)
+        {
             holder = new ViewHolder();
-            holder.tendau = (TextView) convertView.findViewById(R.id.txttitle);
-            holder.flagView = (CircleImage) convertView.findViewById(R.id.img);
-            holder.countryNameView = (TextView) convertView.findViewById(R.id.textview_ten);
+            convertView=inflater.inflate(layout,null);
+            //LayoutInflater inflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);// cách gọi chính thống trong android java(ko nên dùng)
+            holder.chucaitendau = (TextView) convertView.findViewById(R.id.txttitle);
+            holder.imghinh = (CircleImage) convertView.findViewById(R.id.img);
+            holder.ten = (TextView) convertView.findViewById(R.id.textview_ten);
 
             convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
         }
+        else
+            {
+                holder = (ViewHolder) convertView.getTag();
+            }
+        people p=listData.get(position);
+        holder.chucaitendau.setText(p.getFIRST_NAME().substring(0,1));
+        holder.ten.setText(p.getFIRST_NAME()+" "+p.getLAST_NAME());
+        //byte[] hinhanh=p.getHINH();
+        //Bitmap bitmap=BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
+        //holder.imghinh.setImageBitmap(bitmap);
 
-        listitem country = this.listData.get(position);
-        holder.tendau.setText(country.getTendau());
-        holder.countryNameView.setText(country.getCountryName());
-        int imageId = this.getMipmapResIdByName(country.getFlagName());
-
-        holder.flagView.setImageResource(imageId);
+//        listitem country = this.listData.get(position);
+//        holder.tendau.setText(country.getTendau());
+//        holder.countryNameView.setText(country.getCountryName());
+//        int imageId = this.getMipmapResIdByName(country.getFlagName());
+//
+//        holder.flagView.setImageResource(imageId);
 
         return convertView;
     }
@@ -71,9 +82,9 @@ public class CustomListAdapter extends BaseAdapter{
         return resID;
     }
     static class ViewHolder {
-        CircleImage flagView;
-        TextView countryNameView;
-        TextView tendau;
+        CircleImage imghinh;
+        TextView ten;
+        TextView chucaitendau;
     }
 }
 
