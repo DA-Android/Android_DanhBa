@@ -1,11 +1,16 @@
 package com.example.contact;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -13,6 +18,8 @@ import android.widget.Toast;
 import com.example.contact.model.CircleImage;
 import com.example.contact.model.CustomListAdapter;
 import com.example.contact.model.listitem;
+import com.example.contact.model.people;
+
 import android.content.Intent;
 import android.widget.ImageButton;
 import android.app.Activity;
@@ -24,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
     //private Button btn1;
     CircleImage circleImage;
     private ImageButton btn_them;
-
+    ListView listView;
+    ArrayList<people> arrayList;
+    CustomListAdapter adapter;
     SQLite sqLite;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +42,35 @@ public class MainActivity extends AppCompatActivity {
 
         btn1 =findViewById(R.id.suaxoa);
         btn_them = findViewById(R.id.them);
+        listView =(ListView) findViewById(R.id.danhsach);
+        arrayList=new ArrayList<>();
 
+        sqLite=new SQLite(this,"contact_list.sqlite",null,1);
+        sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(ID INTEGER PRIMARY KEY AUTOINCREMENT, HINH BLOB, FIRSTNAME NVARCHAR(100),FIRSTNAME NVARCHAR(100), EMAIL NVARCHAR(100), NUMBER_PHONE NVARCHAR(20), NUMBER_HOME NVARCHAR(20), NUMBER_COMPANY NVARCHAR(20), NUMBER_ZALO NVARCHAR(20), ADDRESS NVARCHAR(100) )");
+        //thêm dữ liệu
+        //sqLite.Insertsanpham("R.drawable.hinh1","vinh","nguyen","quang","911","NULL","112","115","thehoc");
+//        sqLite.Insertsanpham("R.drawable.hinh1","Ninh","nguyen","quang","911","113","112","115","thehoc");
+//        sqLite.Insertsanpham("R.drawable.hinh1","Hoa","nguyen","quang","911","113","112","115","thehoc");
+        sqLite.Insertsanpham("R.drawable.hinh1","Vinh","Nguyễn","QUANGVINH24689@gmail.com","911","113","112","115","thehoc");
+        sqLite.Insertsanpham("R.drawable.hinh1","Hiếu","Lê","tronghieu12a1vvt@gmail.com","912","","","116","TP.HCM");
+        sqLite.Insertsanpham("R.mipmap.h2","Hoan","Phùng","asxi1998@gmail.com","913","","","117","TP.HCM");
 
+        Cursor cursor= sqLite.GetData("SELECT * FROM CONTACTS");
+        while (cursor.moveToNext()){
+            arrayList.add(new people(cursor.getInt(0),
+                    cursor.getBlob(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getString(7),
+                    cursor.getString(8),
+                    cursor.getString(9))
+            );
+        }
+        adapter=new CustomListAdapter(this, R.layout.listitem, arrayList);
+        listView.setAdapter(adapter);
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(ID INTEGER PRIMARY KEY AUTOINCREMENT, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), COMPANY NVARCHAR(100) )");
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS PHONENUMBER(IDNUMBER INTERGER PRIMARY KEY, NUMBERS VNARCHAR(10), NUMBERKIND NVARCHAR(10), IDCONTACTSNUMBER INTEGER REFERENCES CONTACTS(ID) )");
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS MAIL(IDMAIL INTEGER PRIMARY KEY AUTOINCREMENT, MAIL VNARCHAR(100), IDCONTACTSMAIL INTEGER REFERENCES CONTACTS(ID) )");
@@ -57,10 +93,7 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
-        final List<listitem> image_details = getListData();
-        final ListView listView = (ListView) findViewById(R.id.danhsach);
 
-        listView.setAdapter(new CustomListAdapter(this, image_details));
 
         // Khi người dùng click vào các ListItem
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -89,9 +122,6 @@ public class MainActivity extends AppCompatActivity {
         for (int i=0;i<ten.length;i++)
         {
             list.add(new listitem(ten[i], images[i], ten[i].substring(0,1)));
-//            for(int j=i;j<images.length;j++) {
-//
-//            }
         }
         return list;
     }

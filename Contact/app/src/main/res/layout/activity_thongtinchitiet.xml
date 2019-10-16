@@ -60,9 +60,12 @@
                 android:textSize="20dp"
                 android:background="@drawable/duongvientron"/>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/background_light"
             android:orientation="horizontal"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
@@ -74,27 +77,27 @@
 
                 <ImageButton
                     android:id="@+id/message"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/messager" />
+                    android:background="@android:color/background_light"
+                    android:src="@drawable/tinnhan" />
 
                 <TextView
                     android:id="@+id/textView_message"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Messager"
-                    android:textColor="#000000"
                     android:textAlignment="center"
-
+                    android:textColor="#000000"
                     android:textSize="12dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="40dp">
+                android:layout_marginLeft="40dp"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/Call"
@@ -102,6 +105,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:src="@android:drawable/sym_action_call" />
+
 
                 <TextView
                     android:id="@+id/textView_call"
@@ -117,14 +121,15 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="40dp">
+                android:layout_marginLeft="40dp"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/videocall"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:background="@android:color/background_light"
                     android:src="@drawable/videocall" />
 
                 <TextView
@@ -132,22 +137,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Video call"
-                    android:textColor="#000000"
                     android:textAlignment="center"
+                    android:textColor="#000000"
                     android:textSize="12dp" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="40dp">
+                android:layout_marginLeft="40dp"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/Location"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:background="@android:color/background_light"
                     android:src="@drawable/location" />
 
                 <TextView
@@ -155,8 +162,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Location"
-                    android:textColor="#000000"
                     android:textAlignment="center"
+                    android:textColor="#000000"
                     android:textSize="12dp" />
 
             </LinearLayout>
