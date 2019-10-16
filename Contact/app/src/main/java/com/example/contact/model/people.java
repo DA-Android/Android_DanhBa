@@ -2,7 +2,7 @@ package com.example.contact.model;
 
 import java.util.Arrays;
 
-public class people {
+public class people implements Comparable<people> {
     private int ID ;
     private  byte[] HINH;
     private String FIRST_NAME;
@@ -105,5 +105,10 @@ public class people {
 
     public void setADDRESS(String ADDRESS) {
         this.ADDRESS = ADDRESS;
+    }
+
+    @Override
+    public int compareTo(people people) {
+        return FIRST_NAME.compareToIgnoreCase(people.FIRST_NAME);
     }
 }

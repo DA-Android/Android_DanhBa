@@ -1,19 +1,19 @@
 package com.example.contact;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.contact.model.CircleImage;
 import com.example.contact.model.CustomListAdapter;
@@ -22,23 +22,32 @@ import com.example.contact.model.people;
 
 import android.content.Intent;
 import android.widget.ImageButton;
-import android.app.Activity;
+import android.view.GestureDetector;
+import android.widget.Toast;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity{
+    private static final String DEBUG_TAG = "Gestures";
+    private GestureDetectorCompat mDetector;
+    int max=100;
+    int min=50;
     private ImageButton btn1;
     //private Button btn1;
     CircleImage circleImage;
     private ImageButton btn_them;
     ListView listView;
     ArrayList<people> arrayList;
+    ArrayList<people> arrayListcopy;
     CustomListAdapter adapter;
     SQLite sqLite;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mDetector = new GestureDetectorCompat(this, new MyGestureListener());
+
 
         btn1 =findViewById(R.id.suaxoa);
         btn_them = findViewById(R.id.them);
@@ -51,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
         //sqLite.Insertsanpham("R.drawable.hinh1","vinh","nguyen","quang","911","NULL","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Ninh","nguyen","quang","911","113","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Hoa","nguyen","quang","911","113","112","115","thehoc");
-        sqLite.Insertsanpham("R.drawable.hinh1","Vinh","Nguyễn","QUANGVINH24689@gmail.com","911","113","112","115","thehoc");
-        sqLite.Insertsanpham("R.drawable.hinh1","Hiếu","Lê","tronghieu12a1vvt@gmail.com","912","","","116","TP.HCM");
-        sqLite.Insertsanpham("R.mipmap.h2","Hoan","Phùng","asxi1998@gmail.com","913","","","117","TP.HCM");
+//        sqLite.Insertsanpham("R.drawable.hinh1","Vinh","Nguyễn","QUANGVINH24689@gmail.com","911","113","112","115","thehoc");
+//        sqLite.Insertsanpham("R.drawable.hinh1","Hiếu","Lê","tronghieu12a1vvt@gmail.com","912","","","116","TP.HCM");
+//        sqLite.Insertsanpham("R.mipmap.h2","Vy","Nguyễn","asxi1998@gmail.com","913","","","117","TP.HCM");
 
         Cursor cursor= sqLite.GetData("SELECT * FROM CONTACTS");
         while (cursor.moveToNext()){
@@ -69,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     cursor.getString(9))
             );
         }
+        Collections.sort(arrayList);
         adapter=new CustomListAdapter(this, R.layout.listitem, arrayList);
         listView.setAdapter(adapter);
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(ID INTEGER PRIMARY KEY AUTOINCREMENT, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), COMPANY NVARCHAR(100) )");
@@ -124,6 +134,33 @@ public class MainActivity extends AppCompatActivity {
             list.add(new listitem(ten[i], images[i], ten[i].substring(0,1)));
         }
         return list;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        this.mDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        private static final String DEBUG_TAG = "Gestures";
+
+        @Override
+        public boolean onDown(MotionEvent event) {
+            Log.d(DEBUG_TAG,"onDown: " + event.toString());
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
+            if(event1.getX()- event2.getX()>max && Math.abs(velocityX)>min)
+            {
+                Toast.makeText(MainActivity.this, "từ phải sang phải", LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, activity_insert.class);
+                startActivity(intent);
+            }
+            return super.onFling(event1,event2,velocityX,velocityY);
+        }
     }
 //    private String[] getListDataheader() {
 //        List<listitem> list = getListData();

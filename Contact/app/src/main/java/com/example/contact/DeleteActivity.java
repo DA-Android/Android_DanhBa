@@ -3,10 +3,14 @@ package com.example.contact;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -14,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.contact.adapter.DateAdapter;
 import com.example.contact.adapter.EmailAdapter;
@@ -25,8 +30,12 @@ import com.example.contact.model.PhoneContact;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeleteActivity extends AppCompatActivity {
+import static android.widget.Toast.LENGTH_SHORT;
 
+public class DeleteActivity extends AppCompatActivity {
+    private GestureDetectorCompat mDetector;
+    int max=100;
+    int min=100;
     ImageView imageViewAddress;
     EditText editTextAddrees;
     TextView textViewAddress;
@@ -48,7 +57,7 @@ public class DeleteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete);
-
+        mDetector = new GestureDetectorCompat(this, new DeleteActivity.MyGestureListener());
         actionBar= getSupportActionBar();
 //      actionBar.setTitle(Html.fromHtml("<h6>" + "CANCEL" + "</h6>"));
 //        actionBar.setTitle(getString(R.string.cancel));
@@ -169,7 +178,31 @@ public class DeleteActivity extends AppCompatActivity {
         DateContact contactdate= new DateContact("","",getText(R.string.date).toString(),R.drawable.ic_calender,listdate);
         arrayListDate.add(contactdate);
     }
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        this.mDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
 
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        private static final String DEBUG_TAG = "Gestures";
+
+        @Override
+        public boolean onDown(MotionEvent event) {
+            Log.d(DEBUG_TAG,"onDown: " + event.toString());
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
+            if(event2.getX()- event1.getX()>max && Math.abs(velocityY)>min)
+            {
+                Toast.makeText(DeleteActivity.this, "từ trái sang phải", LENGTH_SHORT).show();
+                onBackPressed();
+            }
+            return super.onFling(event1,event2,velocityX,velocityY);
+        }
+    }
 
 
 }
