@@ -155,4 +155,12 @@ public class activity_insert extends AppCompatActivity {
         DateContact contactdate= new DateContact("","",getText(R.string.date).toString(),R.drawable.ic_calender,listdate);
         arrayListDate.add(contactdate);
     }
+
+
+
+
+
+
+
+
 }
