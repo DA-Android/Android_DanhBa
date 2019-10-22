@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity{
         sqLite=new SQLite(this,"contact_list.sqlite",null,1);
         sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(ID INTEGER PRIMARY KEY AUTOINCREMENT, HINH BLOB, FIRSTNAME NVARCHAR(100),FIRSTNAME NVARCHAR(100), EMAIL NVARCHAR(100), NUMBER_PHONE NVARCHAR(20), NUMBER_HOME NVARCHAR(20), NUMBER_COMPANY NVARCHAR(20), NUMBER_ZALO NVARCHAR(20), ADDRESS NVARCHAR(100) )");
         //thêm dữ liệu
-        //sqLite.Insertsanpham("R.drawable.hinh1","vinh","nguyen","quang","911","NULL","112","115","thehoc");
+        sqLite.Insertsanpham("R.drawable.hinh1","vinh","nguyen","quang","911","NULL","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Ninh","nguyen","quang","911","113","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Hoa","nguyen","quang","911","113","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Vinh","Nguyễn","QUANGVINH24689@gmail.com","911","113","112","115","thehoc");

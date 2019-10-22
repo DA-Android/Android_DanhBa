@@ -1,4 +1,4 @@
-﻿package com.example.contact;
+package com.example.contact;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
