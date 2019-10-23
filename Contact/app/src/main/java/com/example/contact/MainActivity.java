@@ -53,29 +53,27 @@ public class MainActivity extends AppCompatActivity{
         btn_them = findViewById(R.id.them);
         listView =(ListView) findViewById(R.id.danhsach);
         arrayList=new ArrayList<>();
-
+        SQLite sqLite;
         sqLite=new SQLite(this,"contact_list.sqlite",null,1);
-        sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(ID INTEGER PRIMARY KEY AUTOINCREMENT, HINH BLOB, FIRSTNAME NVARCHAR(100),FIRSTNAME NVARCHAR(100), EMAIL NVARCHAR(100), NUMBER_PHONE NVARCHAR(20), NUMBER_HOME NVARCHAR(20), NUMBER_COMPANY NVARCHAR(20), NUMBER_ZALO NVARCHAR(20), ADDRESS NVARCHAR(100) )");
+        sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(IDCONTACTS INTEGER PRIMARY KEY AUTOINCREMENT, HINH BLOB, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), EMAIL NVARCHAR(100), ADDRESS NVARCHAR(100) )");
+        sqLite.QueryData("CREATE TABLE IF NOT EXISTS PHONENUMBER(IDNUMBER INTERGER PRIMARY KEY, NUMBERS NVNARCHAR(10), NUMBERKIND NVARCHAR(10), IDCONTACTSNUMBER INTEGER REFERENCES CONTACTS(IDCONTACTS) )");
+        sqLite.QueryData("CREATE TABLE IF NOT EXISTS MAIL(IDMAIL INTEGER PRIMARY KEY AUTOINCREMENT, MAIL NVNARCHAR(100), IDCONTACTSMAIL INTEGER REFERENCES CONTACTS(IDCONTACTS) )");
+        sqLite.QueryData("CREATE TABLE IF NOT EXISTS DATE(IDDATE INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME DATE(100), DATEKIND NVARCHAR(10), IDCONTACTSDATE INTEGER REFERENCES CONTACTS(IDCONTACTS) )");
         //thêm dữ liệu
-        //sqLite.Insertsanpham("R.drawable.hinh1","vinh","nguyen","quang","911","NULL","112","115","thehoc");
+        sqLite.Insertnumber("911","dd",1);
 //        sqLite.Insertsanpham("R.drawable.hinh1","Ninh","nguyen","quang","911","113","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Hoa","nguyen","quang","911","113","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Vinh","Nguyễn","QUANGVINH24689@gmail.com","911","113","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Hiếu","Lê","tronghieu12a1vvt@gmail.com","912","","","116","TP.HCM");
 //        sqLite.Insertsanpham("R.mipmap.h2","Vy","Nguyễn","asxi1998@gmail.com","913","","","117","TP.HCM");
-
+        Toast.makeText(MainActivity.this, "insert thanh cong", LENGTH_SHORT).show();
         Cursor cursor= sqLite.GetData("SELECT * FROM CONTACTS");
         while (cursor.moveToNext()){
             arrayList.add(new people(cursor.getInt(0),
                     cursor.getBlob(1),
                     cursor.getString(2),
                     cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5),
-                    cursor.getString(6),
-                    cursor.getString(7),
-                    cursor.getString(8),
-                    cursor.getString(9))
+                    cursor.getString(4))
             );
         }
         Collections.sort(arrayList);
