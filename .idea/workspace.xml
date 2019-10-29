@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4395f6d1-f9dd-43d7-a85e-7637eb1dd150" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Contact/app/src/main/java/com/example/contact/model/people.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contact/app/src/main/java/com/example/contact/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/app/src/main/java/com/example/contact/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contact/app/src/main/java/com/example/contact/SQLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/app/src/main/java/com/example/contact/SQLite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contact/app/src/main/java/com/example/contact/model/CustomListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/app/src/main/java/com/example/contact/model/CustomListAdapter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,23 +35,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Android_DanhBa" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Android_DanhBa" type="e9137016:NonAndroidModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Android_DanhBa" type="b2602c69:ProjectViewProjectNode" />
               <item name="Android_DanhBa" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Android_DanhBa" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Android_DanhBa" type="e9137016:NonAndroidModuleNode" />
             </path>
           </expand>
           <select />
@@ -75,7 +73,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Contact" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RunDashboard">
@@ -107,7 +105,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32980332" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.330053" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -126,6 +124,7 @@
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Codota" order="4" />
+      <window_info anchor="right" id="Viewer" order="5" side_tool="true" />
     </layout>
   </component>
 </project>
