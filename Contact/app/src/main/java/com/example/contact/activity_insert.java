@@ -1,18 +1,33 @@
 package com.example.contact;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GestureDetectorCompat;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,6 +40,8 @@ import com.example.contact.model.DateContact;
 import com.example.contact.model.EmailContact;
 import com.example.contact.model.PhoneContact;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +69,14 @@ public class activity_insert extends AppCompatActivity {
 
     ActionBar actionBar;
 
+    ImageButton btn_save;
+    private ImageView img;
+
+    int REQ = 123;
+
+    int btn_Camera = 0;// 0 : chon anh 1 : Chup anh
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +89,22 @@ public class activity_insert extends AppCompatActivity {
 //        actionBar.setDisplayHomeAsUpEnabled(true);
 
         setWidget();
+
+        img = findViewById(R.id.imageView);
+
+        btn_save = findViewById(R.id.btn_save);
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+            }
+        });
+
+        registerForContextMenu(img);
+
 
         arrayListPhone= new ArrayList<PhoneContact>();
         adapterPhone=new PhoneAdapter(this,arrayListPhone);
@@ -90,37 +131,111 @@ public class activity_insert extends AppCompatActivity {
         //editTextAddrees.clearFocus();
 
     }
-
-
+    //bat su kien menu
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_top_finish,menu);
-        return super.onCreateOptionsMenu(menu);
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        getMenuInflater().inflate(R.menu.menu_context,menu);
+        menu.setHeaderTitle("Chọn ảnh");
+        super.onCreateContextMenu(menu, v, menuInfo);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+
+    //chọn ảnh hay chụp ảnh
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
         {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            case R.menu.menu_top_finish:
+            case R.id.Anh_TV :
+            {
+                if(ContextCompat.checkSelfPermission(activity_insert.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_insert.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
+                }
+                else {
+                    btn_Camera = 0;
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    intent.setType("image/*");
+                    startActivityForResult(intent, REQ);
+                }
+                break;
+            }
 
+            case R.id.Chup_anh :
+            {
 
-                onBackPressed();
-
-            case R.id.imageView:
-
-
-
-            default:break;
+                if(ContextCompat.checkSelfPermission(activity_insert.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_insert.this,new String[]{Manifest.permission.CAMERA},1);
+                }
+                else {
+                    btn_Camera = 1;
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, REQ);
+                }
+                break;
+            }
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onContextItemSelected(item);
     }
+
+
+
+    // Luu anh vao img
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if(requestCode == REQ && resultCode == RESULT_OK && data != null)
+        {
+            if(btn_Camera == 0) {
+                try {
+                    Uri uri = data.getData();
+                    InputStream inputStream = getContentResolver().openInputStream(uri);
+                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                    img.setImageBitmap(bitmap);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+            else
+            {
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                img.setImageBitmap(bitmap);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        getMenuInflater().inflate(R.menu.menu_top_finish,menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//
+//        switch (item.getItemId())
+//        {
+//            case android.R.id.home:
+//                onBackPressed();
+//                return true;
+//            case R.menu.menu_top_finish:
+//
+//
+//                onBackPressed();
+//
+//            case R.id.imageView:
+//
+//
+//
+//            default:break;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     public void setWidget(){
         imageViewAddress= (ImageView) findViewById(R.id.imgView_address);

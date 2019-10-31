@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Chọn ảnh từ Thư viện"
+        android:id="@+id/Anh_TV"/>
+    <item android:title="Chụp ảnh"
+        android:id="@+id/Chup_anh"/>
+
+
+</menu>

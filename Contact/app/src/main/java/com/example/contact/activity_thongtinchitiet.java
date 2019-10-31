@@ -1,9 +1,14 @@
 package com.example.contact;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GestureDetectorCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -21,6 +26,12 @@ public class activity_thongtinchitiet extends AppCompatActivity {
     int min=100;
     private ImageButton back;
     private Button btn_update;
+
+    private ImageButton btn_Call;
+    private ImageButton btn_SMS;
+    private ImageButton btn_CVideo;
+    private ImageButton btn_GPS;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +56,84 @@ public class activity_thongtinchitiet extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btn_Call = findViewById(R.id.Call);
+        btn_Call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(activity_thongtinchitiet.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_thongtinchitiet.this,new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else {
+                    Call(123);
+                }
+            }
+        });
+
+        btn_SMS = findViewById(R.id.message);
+        btn_SMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(ContextCompat.checkSelfPermission(activity_thongtinchitiet.this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_thongtinchitiet.this,new String[]{Manifest.permission.SEND_SMS},1);
+                }
+                else {
+                    SMS(900);
+                }
+            }
+        });
+
+        btn_CVideo = findViewById(R.id.videocall);
+        btn_CVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(activity_thongtinchitiet.this,"This function is being updated",LENGTH_SHORT).show();
+            }
+        });
+
+        btn_GPS = findViewById(R.id.Location);
+        btn_GPS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(activity_thongtinchitiet.this,"This function is being updated",LENGTH_SHORT).show();
+            }
+        });
+
+
     }
+
+    public void check_permissions()
+    {
+        String[] permissions = new String[]{Manifest.permission.CALL_PHONE, Manifest.permission.SEND_SMS, Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+        for(String permission : permissions)
+        {
+            if(ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED)
+            {
+                ActivityCompat.requestPermissions(this, permissions,1);
+            }
+        }
+    }
+
+    //  gọi
+    public void Call(int number)
+    {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel: +84"+number));
+        startActivity(intent);
+    }
+    //  nhắn tin
+    public  void SMS(int number)
+    {
+        Intent intent  = new Intent(Intent.ACTION_VIEW,Uri.parse("sms:"+number));
+        startActivity(intent);
+    }
+
+
     @Override
     public boolean onTouchEvent(MotionEvent event){
         this.mDetector.onTouchEvent(event);

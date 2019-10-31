@@ -1,4 +1,4 @@
-﻿package com.example.contact;
+package com.example.contact;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 
@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity{
     ArrayList<people> arrayListcopy;
     CustomListAdapter adapter;
     SQLite sqLite;
+
+    int vitri =0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +67,9 @@ public class MainActivity extends AppCompatActivity{
         //sqLite.Insertnumber("911","dd",1);
         sqLite.Insertcontacts("R.drawable.hinh1","Ninh","nguyen","vinh@","thehoc");
 
+        sqLite.Insertcontacts("R." +
+                "drawable.hinh1","Ninh","nguyen","vinh@","thehoc");
+
 //        sqLite.Insertsanpham("R.drawable.hinh1","Hoa","nguyen","quang","911","113","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Vinh","Nguyễn","QUANGVINH24689@gmail.com","911","113","112","115","thehoc");
 //        sqLite.Insertsanpham("R.drawable.hinh1","Hiếu","Lê","tronghieu12a1vvt@gmail.com","912","","","116","TP.HCM");
@@ -77,7 +83,11 @@ public class MainActivity extends AppCompatActivity{
                     cursor.getString(3),
                     cursor.getString(4))
             );
+
         }
+
+
+
         Collections.sort(arrayList);
         adapter=new CustomListAdapter(this, R.layout.listitem, arrayList);
         listView.setAdapter(adapter);
@@ -114,6 +124,8 @@ public class MainActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+
+
 
         btn_them.setOnClickListener(new View.OnClickListener() {
             @Override
