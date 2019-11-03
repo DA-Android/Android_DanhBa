@@ -90,7 +90,11 @@ public class activity_thongtinchitiet extends AppCompatActivity {
         btn_CVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity_thongtinchitiet.this,"This function is being updated",LENGTH_SHORT).show();
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.setPackage("com.zing.zalo");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 
@@ -98,7 +102,11 @@ public class activity_thongtinchitiet extends AppCompatActivity {
         btn_GPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity_thongtinchitiet.this,"This function is being updated",LENGTH_SHORT).show();
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setPackage("com.google.android.apps.maps");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 
