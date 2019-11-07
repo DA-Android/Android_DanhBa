@@ -28,7 +28,7 @@ public class SQLite extends SQLiteOpenHelper {
         SQLiteDatabase db=getWritableDatabase();
         db.execSQL(sql);
     }
-    void Insertcontacts( String hinh, String FIRST_NAME, String LAST_NAME,String EMAIL, String ADDRESS)
+    void Insertcontacts(String hinh, String FIRST_NAME, String LAST_NAME, String ADDRESS)
     {
         //chuyển hình từ Imageview =>byte[]
 //        BitmapDrawable drawable= (BitmapDrawable) img.getDrawable();
@@ -39,14 +39,13 @@ public class SQLite extends SQLiteOpenHelper {
         //-----------------------------------------------------------------------------
 
         SQLiteDatabase db=getWritableDatabase();
-        String sql="Insert into PEOPLE values (null,?,?,?,?,?)";
+        String sql="Insert into PEOPLE values (null,?,?,?,?)";
         SQLiteStatement sqLiteStatement=db.compileStatement(sql);
         sqLiteStatement.clearBindings();
         sqLiteStatement.bindString(1,hinh);
         sqLiteStatement.bindString(2,FIRST_NAME);
         sqLiteStatement.bindString(3,LAST_NAME);
-        sqLiteStatement.bindString(4,LAST_NAME);
-        sqLiteStatement.bindString(5,ADDRESS);
+        sqLiteStatement.bindString(4,ADDRESS);
         sqLiteStatement.executeInsert();
     }
     void Insertemail( String MAIL, int IDCONTACTSMAIL)
@@ -86,7 +85,7 @@ public class SQLite extends SQLiteOpenHelper {
         statement.bindLong(3,IDCONTACTSNUMBER);
         statement.executeInsert();
     }
-    void Insertdate(DATE DATETIME, String DATEKIND, int IDCONTACTSDATE)
+    void Insertdate(String DATETIME, String DATEKIND, int IDCONTACTSDATE)
     {
         //chuyển hình từ Imageview =>byte[]
 //        BitmapDrawable drawable= (BitmapDrawable) img.getDrawable();

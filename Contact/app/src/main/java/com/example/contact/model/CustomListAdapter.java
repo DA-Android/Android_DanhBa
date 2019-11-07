@@ -8,22 +8,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.contact.ImageConverter;
 import com.example.contact.R;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class CustomListAdapter extends BaseAdapter{
     private Context context;
     private int layout;
     private List<people>listData;
+    private ArrayList<people> arraylist;
     LayoutInflater inflater;
     public CustomListAdapter(Context context, int layout, List<people> listData) {
         this.context = context;
         this.layout = layout;
         this.listData = listData;
         inflater= LayoutInflater.from(context);
+        this.arraylist = new ArrayList<people>();
+        this.arraylist.addAll(listData);
     }
 
     @Override
@@ -48,7 +55,7 @@ public class CustomListAdapter extends BaseAdapter{
             convertView=inflater.inflate(layout,null);
             //LayoutInflater inflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);// cách gọi chính thống trong android java(ko nên dùng)
             holder.chucaitendau = (TextView) convertView.findViewById(R.id.txttitle);
-            holder.imghinh = (CircleImage) convertView.findViewById(R.id.img);
+            holder.imghinh = (ImageView) convertView.findViewById(R.id.img);
             holder.ten = (TextView) convertView.findViewById(R.id.textview_ten);
 
             convertView.setTag(holder);
@@ -81,8 +88,25 @@ public class CustomListAdapter extends BaseAdapter{
         Log.i("CustomListView", "Res Name: "+ resName+"==> Res ID = "+ resID);
         return resID;
     }
+
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        listData.clear();
+        if (charText.length() == 0) {
+            listData.addAll(arraylist);
+        } else {
+            for (people wp : arraylist) {
+                if ((wp.getFIRST_NAME().toLowerCase(Locale.getDefault()).contains(charText)) || (wp.getLAST_NAME().toLowerCase(Locale.getDefault()).contains(charText)))
+                {
+                    listData.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+
     static class ViewHolder {
-        CircleImage imghinh;
+        ImageView imghinh;
         TextView ten;
         TextView chucaitendau;
     }
