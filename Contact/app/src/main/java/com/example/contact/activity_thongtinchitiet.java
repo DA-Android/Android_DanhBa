@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GestureDetectorCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -16,7 +17,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.contact.model.CustomListAdapter_ttct;
+import com.example.contact.model.people;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Set;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -31,11 +41,38 @@ public class activity_thongtinchitiet extends AppCompatActivity {
     private ImageButton btn_SMS;
     private ImageButton btn_CVideo;
     private ImageButton btn_GPS;
+    TextView textViewname, textViewdc, textView2, textViewsdt, textView3, textViewsdt1, textView4,textViewsdt2, textView5, textViewsdt3, textViewmail;
 
+    ListView listView;
+    ArrayList<Set<String>> peopleArrayList;
+    ArrayList<people> arrayList_ttct;
+    CustomListAdapter_ttct adapter_ttct;
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thongtinchitiet);
+        arrayList_ttct= new ArrayList<>();
+        textViewname=findViewById(R.id.textView);
+        textViewdc=findViewById(R.id.dc);
+        textView2=findViewById(R.id.textView2);
+        textViewsdt=findViewById(R.id.sdt);
+        textViewmail=findViewById(R.id.txtemail);
+        textView3=findViewById(R.id.textView3);
+        textViewsdt1=findViewById(R.id.sdt1);
+        textViewdc=findViewById(R.id.dc);
+        textView4=findViewById(R.id.textView4);
+        textViewsdt2=findViewById(R.id.sdt2);
+        textView5=findViewById(R.id.textView5);
+        textViewsdt3=findViewById(R.id.sdt3);
+        Intent intent = getIntent();
+        textViewname.setText(intent.getStringExtra("firstname")+" "+intent.getStringExtra("lastname"));
+        textViewdc.setText(intent.getStringExtra("dc"));
+        textView2.setText(intent.getStringExtra("numberkind"));
+        textViewsdt.setText(intent.getStringExtra("numberphone"));
+        textViewmail.setText(intent.getStringExtra("Mail"));
+
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());
         back =findViewById(R.id.back);
         //quay trở về trang chính

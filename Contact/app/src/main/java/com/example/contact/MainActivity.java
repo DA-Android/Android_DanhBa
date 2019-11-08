@@ -4,11 +4,13 @@ import androidx.core.view.GestureDetectorCompat;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -42,8 +44,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     CustomListAdapter adapter;
     SQLite sqLite;
     SearchView editsearch;
-
-    int vitri =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,6 +153,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, activity_thongtinchitiet.class);
+                intent.putExtra("firstname", String.valueOf(arrayList.get(position).getFIRST_NAME()));
+                intent.putExtra("lastname", String.valueOf(arrayList.get(position).getLAST_NAME()));
+                intent.putExtra("dc", String.valueOf(arrayList.get(position).getADDRESS()));
+                intent.putExtra("numberkind", String.valueOf(arrayList.get(position).getNUMBERKIND()));
+                intent.putExtra("numberphone", String.valueOf(arrayList.get(position).getNUMBERS()));
+                intent.putExtra("Mail", String.valueOf(arrayList.get(position).getMAIL()));
                 startActivity(intent);
             }
         });
