@@ -23,6 +23,7 @@
         android:id="@+id/edtText_email"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,4 +39,13 @@
         app:layout_constraintTop_toTopOf="@+id/txtView_email"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/imagebtnEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_plus"
+        android:background="#ffff"
+        app:layout_constraintStart_toEndOf="@+id/edtText_email"
+        app:layout_constraintTop_toTopOf="@+id/edtText_email" />
 </androidx.constraintlayout.widget.ConstraintLayout>

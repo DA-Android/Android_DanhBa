@@ -4,40 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_insert">
+    tools:context=".activity_insert"
+    android:background="#FFFFFF">
 
 
-    <ImageView
-        android:id="@+id/imgView_address"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="10dp"
-        android:src="@drawable/ic_address"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtView_address"
-        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/txtView_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="@string/address"
-        android:textColor="#000000"
-        android:textSize="18dp"
-
-        app:layout_constraintStart_toEndOf="@+id/imgView_address"
-        app:layout_constraintTop_toTopOf="@+id/edtText_address"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/edtText_address"
-        android:layout_width="240dp"
-        android:layout_height="46dp"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lstViewEmail"
-        tools:ignore="MissingConstraints"></EditText>
 
     <ImageView
         android:id="@+id/imageView"
@@ -50,7 +21,6 @@
         app:srcCompat="@android:drawable/ic_menu_add"
 
         />
-
     <EditText
         android:id="@+id/editTextFirst"
         android:layout_width="220dp"
@@ -64,7 +34,6 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
     <EditText
         android:id="@+id/editTextLastName"
         android:layout_width="220dp"
@@ -78,43 +47,1054 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextFirst"
         tools:ignore="MissingConstraints" />
 
-    <ListView
-        android:id="@+id/lstViewPhone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <ListView
-        android:id="@+id/lstViewEmail"
-        android:layout_width="0dp"
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewPhoneInsert"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lstViewPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        >
 
-    <ListView
-        android:id="@+id/lstViewDate"
-        android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutPhoneInsert1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imgView_phoneinsert1"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_phoneinsert1"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/txtView_phoneinsert1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/phone"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_phoneinsert1"
+                app:layout_constraintTop_toTopOf="@id/edtText_phoneinsert1"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/edtText_phoneinsert1"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:enabled="true"
+
+                android:id="@+id/edtText_kind_phoneinsert1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_phoneinsert1"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_phoneinsert1"
+                tools:ignore="MissingConstraints"/>
+            <Spinner
+                android:id="@+id/spinner_kind_phoneinsert1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_phoneinsert1"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_phoneinsert1"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutPhoneInsert2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="85dp"
+            android:visibility="gone"
+            >
+
+
+            <ImageView
+                android:id="@+id/imgView_phoneinsert2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_phoneinsert2"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/txtView_phoneinsert2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/phone"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_phoneinsert2"
+                app:layout_constraintTop_toTopOf="@id/edtText_phoneinsert2"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_phoneinsert2"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"/>
+            <EditText
+                android:enabled="true"
+
+                android:id="@+id/edtText_kind_phoneinsert2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_phoneinsert2"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_phoneinsert2"
+                tools:ignore="MissingConstraints"/>
+            <Spinner
+                android:id="@+id/spinner_kind_phoneinsert2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_phoneinsert2"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_phoneinsert2"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutPhoneInsert3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="170dp"
+            android:visibility="gone"
+            >
+
+
+            <ImageView
+                android:id="@+id/imgView_phoneinsert3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_phoneinsert3"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/txtView_phoneinsert3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/phone"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_phoneinsert3"
+                app:layout_constraintTop_toTopOf="@id/edtText_phoneinsert3"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_phoneinsert3"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"/>
+            <EditText
+                android:enabled="true"
+
+                android:id="@+id/edtText_kind_phoneinsert3"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_phoneinsert3"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_phoneinsert3"
+                tools:ignore="MissingConstraints"/>
+            <Spinner
+                android:id="@+id/spinner_kind_phoneinsert3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_phoneinsert3"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_phoneinsert3"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutPhoneInsert4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="255dp"
+            android:visibility="gone"
+            >
+
+
+            <ImageView
+                android:id="@+id/imgView_phoneinsert4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_phoneinsert4"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/txtView_phoneinsert4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/phone"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_phoneinsert4"
+                app:layout_constraintTop_toTopOf="@id/edtText_phoneinsert4"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_phoneinsert4"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"/>
+            <EditText
+                android:enabled="true"
+
+                android:id="@+id/edtText_kind_phoneinsert4"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_phoneinsert4"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_phoneinsert4"
+                tools:ignore="MissingConstraints"/>
+            <Spinner
+                android:id="@+id/spinner_kind_phoneinsert4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_phoneinsert4"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_phoneinsert4"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutPhoneInsert5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="340dp"
+            android:visibility="gone"
+            >
+
+
+            <ImageView
+                android:id="@+id/imgView_phoneinsert5"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_phoneinsert5"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/txtView_phoneinsert5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/phone"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_phoneinsert5"
+                app:layout_constraintTop_toTopOf="@id/edtText_phoneinsert5"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_phoneinsert5"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"/>
+            <EditText
+                android:enabled="true"
+
+                android:id="@+id/edtText_kind_phoneinsert5"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_phoneinsert5"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_phoneinsert5"
+                tools:ignore="MissingConstraints"/>
+            <Spinner
+                android:id="@+id/spinner_kind_phoneinsert5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_phoneinsert5"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_phoneinsert5"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutPhoneInsert6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="425dp"
+            android:visibility="gone"
+            >
+
+
+            <ImageView
+                android:id="@+id/imgView_phoneinsert6"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_phoneinsert6"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/txtView_phoneinsert6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/phone"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_phoneinsert6"
+                app:layout_constraintTop_toTopOf="@id/edtText_phoneinsert6"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_phoneinsert6"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"/>
+            <EditText
+                android:enabled="true"
+
+                android:id="@+id/edtText_kind_phoneinsert6"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_phoneinsert6"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_phoneinsert6"
+                tools:ignore="MissingConstraints"/>
+            <Spinner
+                android:id="@+id/spinner_kind_phoneinsert6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_phoneinsert6"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_phoneinsert6"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewEmailInsert"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtText_address" />
+        app:layout_constraintTop_toBottomOf="@+id/cardViewPhoneInsert">
 
-    <ImageButton
-        android:id="@+id/btn_save"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="3dp"
-        android:background="@drawable/shape"
-        android:src="@drawable/save"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutEmailInsert1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/txtView_emailinsert1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/email"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                app:layout_constraintStart_toEndOf="@+id/imgView_emailinsert1"
+                app:layout_constraintTop_toTopOf="@+id/edtText_emailinsert1"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_emailinsert1"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_emailinsert1"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_emailinsert1"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutEmailInsert2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="42dp">
+
+
+            <TextView
+                android:id="@+id/txtView_emailinsert2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/email"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                app:layout_constraintStart_toEndOf="@+id/imgView_emailinsert2"
+                app:layout_constraintTop_toTopOf="@+id/edtText_emailinsert2"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_emailinsert2"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_emailinsert2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_emailinsert2"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutEmailInsert3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="84dp">
+
+
+            <TextView
+                android:id="@+id/txtView_emailinsert3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/email"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                app:layout_constraintStart_toEndOf="@+id/imgView_emailinsert3"
+                app:layout_constraintTop_toTopOf="@+id/edtText_emailinsert3"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_emailinsert3"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_emailinsert3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_emailinsert3"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutEmailInsert4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="126dp">
+
+
+            <TextView
+                android:id="@+id/txtView_emailinsert4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/email"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                app:layout_constraintStart_toEndOf="@+id/imgView_emailinsert4"
+                app:layout_constraintTop_toTopOf="@+id/edtText_emailinsert4"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_emailinsert4"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_emailinsert4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_emailinsert4"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutEmailInsert5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="168dp">
+
+
+            <TextView
+                android:id="@+id/txtView_emailinsert5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/email"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                app:layout_constraintStart_toEndOf="@+id/imgView_emailinsert5"
+                app:layout_constraintTop_toTopOf="@+id/edtText_emailinsert5"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_emailinsert5"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_emailinsert5"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_emailinsert5"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutEmailInsert6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="210dp">
+
+
+            <TextView
+                android:id="@+id/txtView_emailinsert6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/email"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                app:layout_constraintStart_toEndOf="@+id/imgView_emailinsert6"
+                app:layout_constraintTop_toTopOf="@+id/edtText_emailinsert6"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_emailinsert6"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_emailinsert6"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_emailinsert6"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewAddressInsert"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewEmailInsert">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutAddressInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgView_addressinsert"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView_addressinsert"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/txtView_addressinsert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/address"
+                android:textColor="#000000"
+
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_addressinsert"
+                app:layout_constraintTop_toTopOf="@+id/edtText_addressinsert"
+                tools:ignore="MissingConstraints" />
+            <EditText
+                android:id="@+id/edtText_addressinsert"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></EditText>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewDateInsert"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewAddressInsert">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutDateInsert1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edtText_dateinsert1"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <EditText
+                android:id="@+id/edtText_kind_dateinsert1"
+
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:inputType=""
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert1"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert1"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_dateinsert1"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_calender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+            <Spinner
+                android:id="@+id/spinner_kind_dateinsert1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_dateinsert1"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_dateinsert1"
+                tools:ignore="MissingConstraints"></Spinner>
+            <TextView
+                android:id="@+id/txtView_dateinsert1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/date"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_dateinsert1"
+                app:layout_constraintTop_toTopOf="@+id/edtText_dateinsert1"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutDateInsert2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="85dp">
+
+            <EditText
+                android:id="@+id/edtText_dateinsert2"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <EditText
+                android:id="@+id/edtText_kind_dateinsert2"
+
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:inputType=""
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert2"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert2"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_dateinsert2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_calender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+            <Spinner
+                android:id="@+id/spinner_kind_dateinsert2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_dateinsert2"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_dateinsert2"
+                tools:ignore="MissingConstraints"></Spinner>
+            <TextView
+                android:id="@+id/txtView_dateinsert2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/date"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_dateinsert2"
+                app:layout_constraintTop_toTopOf="@+id/edtText_dateinsert2"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutDateInsert3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="170dp">
+
+            <EditText
+                android:id="@+id/edtText_dateinsert3"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <EditText
+                android:id="@+id/edtText_kind_dateinsert3"
+
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:inputType=""
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert3"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert3"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_dateinsert3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_calender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+            <Spinner
+                android:id="@+id/spinner_kind_dateinsert3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_dateinsert3"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_dateinsert3"
+                tools:ignore="MissingConstraints"></Spinner>
+            <TextView
+                android:id="@+id/txtView_dateinsert3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/date"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_dateinsert3"
+                app:layout_constraintTop_toTopOf="@+id/edtText_dateinsert3"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutDateInsert4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="255dp">
+
+            <EditText
+                android:id="@+id/edtText_dateinsert4"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <EditText
+                android:id="@+id/edtText_kind_dateinsert4"
+
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:inputType=""
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert4"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert4"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_dateinsert4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_calender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+            <Spinner
+                android:id="@+id/spinner_kind_dateinsert4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_dateinsert4"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_dateinsert4"
+                tools:ignore="MissingConstraints"></Spinner>
+            <TextView
+                android:id="@+id/txtView_dateinsert4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/date"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_dateinsert4"
+                app:layout_constraintTop_toTopOf="@+id/edtText_dateinsert4"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutDateInsert5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="340dp">
+
+            <EditText
+                android:id="@+id/edtText_dateinsert5"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <EditText
+                android:id="@+id/edtText_kind_dateinsert5"
+
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:inputType=""
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert5"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert5"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_dateinsert5"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_calender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+            <Spinner
+                android:id="@+id/spinner_kind_dateinsert5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_dateinsert5"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_dateinsert5"
+                tools:ignore="MissingConstraints"></Spinner>
+            <TextView
+                android:id="@+id/txtView_dateinsert5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/date"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_dateinsert5"
+                app:layout_constraintTop_toTopOf="@+id/edtText_dateinsert5"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintlayoutDateInsert6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingTop="425dp">
+
+            <EditText
+                android:id="@+id/edtText_dateinsert6"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"></EditText>
+            <EditText
+                android:id="@+id/edtText_kind_dateinsert6"
+
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:inputType=""
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert6"
+                app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert6"
+                tools:ignore="MissingConstraints"></EditText>
+            <ImageView
+                android:id="@+id/imgView_dateinsert6"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_calender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+            <Spinner
+                android:id="@+id/spinner_kind_dateinsert6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/edtText_kind_dateinsert6"
+                app:layout_constraintTop_toTopOf="@+id/edtText_kind_dateinsert6"
+                tools:ignore="MissingConstraints"></Spinner>
+            <TextView
+                android:id="@+id/txtView_dateinsert6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/date"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imgView_dateinsert6"
+                app:layout_constraintTop_toTopOf="@+id/edtText_dateinsert6"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewInsert"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioGroup
+            android:id="@+id/ConstraintlayoutInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageButton
+                android:id="@+id/btn_save"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/shape"
+                android:src="@drawable/save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </RadioGroup>
+    </androidx.cardview.widget.CardView>
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

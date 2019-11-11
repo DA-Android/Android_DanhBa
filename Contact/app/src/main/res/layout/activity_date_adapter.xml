@@ -10,6 +10,7 @@
         android:id="@+id/edtText_date"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -56,4 +57,14 @@
         app:layout_constraintStart_toEndOf="@+id/imgView_date"
         app:layout_constraintTop_toTopOf="@+id/edtText_date"
         tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imagebtnDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="#ffff"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintStart_toEndOf="@+id/edtText_date"
+        app:layout_constraintTop_toTopOf="@+id/edtText_date" />
 </androidx.constraintlayout.widget.ConstraintLayout>

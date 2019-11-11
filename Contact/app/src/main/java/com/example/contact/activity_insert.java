@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GestureDetectorCompat;
@@ -16,6 +17,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.GestureDetector;
@@ -51,21 +54,51 @@ public class activity_insert extends AppCompatActivity {
     private GestureDetectorCompat mDetector;
     int max=100;
     int min=100;
+
     ImageView imageViewAddress;
     EditText editTextAddrees;
     TextView textViewAddress;
 
-    List<PhoneContact> arrayListPhone;
-    ListView listViewPhone;
-    PhoneAdapter adapterPhone;
+    ConstraintLayout constraintLayoutPhoneInsert1;
+    ConstraintLayout constraintLayoutPhoneInsert2;
+    ConstraintLayout constraintLayoutPhoneInsert3;
+    ConstraintLayout constraintLayoutPhoneInsert4;
+    ConstraintLayout constraintLayoutPhoneInsert5;
+    ConstraintLayout constraintLayoutPhoneInsert6;
+    EditText editTextInsertPhone1;
+    EditText editTextInsertPhone2;
+    EditText editTextInsertPhone3;
+    EditText editTextInsertPhone4;
+    EditText editTextInsertPhone5;
+    EditText editTextInsertPhone6;
 
-    List<EmailContact> arrayListEmail;
-    ListView listViewEmail;
-    EmailAdapter adapterEmail;
+    ConstraintLayout constraintLayoutEmailInsert1;
+    ConstraintLayout constraintLayoutEmailInsert2;
+    ConstraintLayout constraintLayoutEmailInsert3;
+    ConstraintLayout constraintLayoutEmailInsert4;
+    ConstraintLayout constraintLayoutEmailInsert5;
+    ConstraintLayout constraintLayoutEmailInsert6;
+    EditText editTextInsertEmail1;
+    EditText editTextInsertEmail2;
+    EditText editTextInsertEmail3;
+    EditText editTextInsertEmail4;
+    EditText editTextInsertEmail5;
+    EditText editTextInsertEmail6;
 
-    List<DateContact> arrayListDate;
-    ListView listViewDate;
-    DateAdapter adapterDate;
+    ConstraintLayout constraintLayoutDateInsert1;
+    ConstraintLayout constraintLayoutDateInsert2;
+    ConstraintLayout constraintLayoutDateInsert3;
+    ConstraintLayout constraintLayoutDateInsert4;
+    ConstraintLayout constraintLayoutDateInsert5;
+    ConstraintLayout constraintLayoutDateInsert6;
+    EditText editTextInsertDate1;
+    EditText editTextInsertDate2;
+    EditText editTextInsertDate3;
+    EditText editTextInsertDate4;
+    EditText editTextInsertDate5;
+    EditText editTextInsertDate6;
+
+
 
     ActionBar actionBar;
 
@@ -76,7 +109,6 @@ public class activity_insert extends AppCompatActivity {
 
     int btn_Camera = 0;// 0 : chon anh 1 : Chup anh
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,51 +116,428 @@ public class activity_insert extends AppCompatActivity {
 
         mDetector = new GestureDetectorCompat(this, new activity_insert.MyGestureListener());
         actionBar= getSupportActionBar();
-//        actionBar.setTitle(getString(R.string.cancel));
-//        actionBar.setDisplayShowHomeEnabled(true);
-//        actionBar.setDisplayHomeAsUpEnabled(true);
 
         setWidget();
 
+        editTextInsertPhone1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertPhone1.getText().length()>0)
+                {
+                    constraintLayoutPhoneInsert2.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertPhone2.getText().length()<=0)
+                    {
+                        constraintLayoutPhoneInsert2.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertPhone2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertPhone2.getText().length()>0)
+                {
+                    constraintLayoutPhoneInsert3.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertPhone3.getText().length()<=0)
+                    {
+                        constraintLayoutPhoneInsert3.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertPhone3.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertPhone3.getText().length()>0)
+                {
+                    constraintLayoutPhoneInsert4.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertPhone4.getText().length()<=0)
+                    {
+                        constraintLayoutPhoneInsert4.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertPhone4.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertPhone4.getText().length()>0)
+                {
+                    constraintLayoutPhoneInsert5.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertPhone5.getText().length()<=0)
+                    {
+                        constraintLayoutPhoneInsert5.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertPhone5.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertPhone5.getText().length()>0)
+                {
+                    constraintLayoutPhoneInsert6.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertPhone6.getText().length()<=0)
+                    {
+                        constraintLayoutPhoneInsert6.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        editTextInsertEmail1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertEmail1.getText().length()>0)
+                {
+                    constraintLayoutEmailInsert2.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertEmail2.getText().length()<=0)
+                    {
+                        constraintLayoutEmailInsert2.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertEmail2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertEmail2.getText().length()>0)
+                {
+                    constraintLayoutEmailInsert3.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertEmail3.getText().length()<=0)
+                    {
+                        constraintLayoutEmailInsert3.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertEmail3.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertEmail3.getText().length()>0)
+                {
+                    constraintLayoutEmailInsert4.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertEmail4.getText().length()<=0)
+                    {
+                        constraintLayoutEmailInsert4.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertEmail4.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertEmail4.getText().length()>0)
+                {
+                    constraintLayoutEmailInsert5.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertEmail5.getText().length()<=0)
+                    {
+                        constraintLayoutEmailInsert5.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertEmail5.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertEmail5.getText().length()>0)
+                {
+                    constraintLayoutEmailInsert6.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertEmail6.getText().length()<=0)
+                    {
+                        constraintLayoutEmailInsert6.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        editTextInsertDate1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertDate1.getText().length()>0)
+                {
+                    constraintLayoutDateInsert2.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertDate2.getText().length()<=0)
+                    {
+                        constraintLayoutDateInsert2.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertDate2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertDate2.getText().length()>0)
+                {
+                    constraintLayoutDateInsert3.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertDate3.getText().length()<=0)
+                    {
+                        constraintLayoutDateInsert3.setVisibility(View.GONE);
+                    }
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertDate3.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertDate3.getText().length()>0)
+                {
+                    constraintLayoutDateInsert4.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertDate4.getText().length()<=0)
+                    {
+                        constraintLayoutDateInsert4.setVisibility(View.GONE);
+                    }
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertDate4.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertDate4.getText().length()>0)
+                {
+                    constraintLayoutDateInsert5.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertDate5.getText().length()<=0)
+                    {
+                        constraintLayoutDateInsert5.setVisibility(View.GONE);
+                    }
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        editTextInsertDate5.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editTextInsertDate5.getText().length()>0)
+                {
+                    constraintLayoutDateInsert6.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    if(editTextInsertDate6.getText().length()<=0)
+                    {
+                        constraintLayoutDateInsert6.setVisibility(View.GONE);
+                    }
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+
+
+
         img = findViewById(R.id.imageView);
 
-        btn_save = findViewById(R.id.btn_save);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
 
             }
         });
 
         registerForContextMenu(img);
 
-
-        arrayListPhone= new ArrayList<PhoneContact>();
-        adapterPhone=new PhoneAdapter(this,arrayListPhone);
-        listViewPhone.setAdapter(adapterPhone);
-
-        arrayListEmail= new ArrayList<EmailContact>();
-        adapterEmail=new EmailAdapter(this,arrayListEmail);
-        listViewEmail.setAdapter(adapterEmail);
-
-        arrayListDate= new ArrayList<DateContact>();
-        adapterDate=new DateAdapter(this,arrayListDate);
-        listViewDate.setAdapter(adapterDate);
-
-        if(arrayListPhone.size()==0){
-            CreateNewPhone();
-        }
-        if(arrayListEmail.size()==0){
-            CreateNewEmail();
-        }
-        if(arrayListDate.size()==0){
-            CreateNewDate();
-        }
-
-        //editTextAddrees.clearFocus();
 
     }
     //bat su kien menu
@@ -138,8 +547,6 @@ public class activity_insert extends AppCompatActivity {
         menu.setHeaderTitle("Chọn ảnh");
         super.onCreateContextMenu(menu, v, menuInfo);
     }
-
-
 
     //chọn ảnh hay chụp ảnh
     @Override
@@ -175,6 +582,7 @@ public class activity_insert extends AppCompatActivity {
                 }
                 break;
             }
+
         }
         return super.onContextItemSelected(item);
     }
@@ -238,50 +646,58 @@ public class activity_insert extends AppCompatActivity {
 //    }
 
     public void setWidget(){
-        imageViewAddress= (ImageView) findViewById(R.id.imgView_address);
-        textViewAddress= (TextView) findViewById(R.id.txtView_address);
-        editTextAddrees= (EditText) findViewById(R.id.edtText_address);
 
-        listViewPhone= (ListView) findViewById(R.id.lstViewPhone);
+        btn_save = findViewById(R.id.btn_save);
 
-        listViewEmail= (ListView) findViewById(R.id.lstViewEmail);
 
-        listViewDate= (ListView) findViewById(R.id.lstViewDate);
+
+
+        constraintLayoutPhoneInsert1=findViewById(R.id.ConstraintlayoutPhoneInsert1);
+        constraintLayoutPhoneInsert2=findViewById(R.id.ConstraintlayoutPhoneInsert2);
+        constraintLayoutPhoneInsert3=findViewById(R.id.ConstraintlayoutPhoneInsert3);
+        constraintLayoutPhoneInsert4=findViewById(R.id.ConstraintlayoutPhoneInsert4);
+        constraintLayoutPhoneInsert5=findViewById(R.id.ConstraintlayoutPhoneInsert5);
+        constraintLayoutPhoneInsert6=findViewById(R.id.ConstraintlayoutPhoneInsert6);
+        editTextInsertPhone1= findViewById(R.id.edtText_phoneinsert1);
+        editTextInsertPhone2= findViewById(R.id.edtText_phoneinsert2);
+        editTextInsertPhone3= findViewById(R.id.edtText_phoneinsert3);
+        editTextInsertPhone4= findViewById(R.id.edtText_phoneinsert4);
+        editTextInsertPhone5= findViewById(R.id.edtText_phoneinsert5);
+        editTextInsertPhone6= findViewById(R.id.edtText_phoneinsert6);
+
+        constraintLayoutEmailInsert1=findViewById(R.id.ConstraintlayoutEmailInsert1);
+        constraintLayoutEmailInsert2=findViewById(R.id.ConstraintlayoutEmailInsert2);
+        constraintLayoutEmailInsert3=findViewById(R.id.ConstraintlayoutEmailInsert3);
+        constraintLayoutEmailInsert4=findViewById(R.id.ConstraintlayoutEmailInsert4);
+        constraintLayoutEmailInsert5=findViewById(R.id.ConstraintlayoutEmailInsert5);
+        constraintLayoutEmailInsert6=findViewById(R.id.ConstraintlayoutEmailInsert6);
+        editTextInsertEmail1= findViewById(R.id.edtText_emailinsert1);
+        editTextInsertEmail2= findViewById(R.id.edtText_emailinsert2);
+        editTextInsertEmail3= findViewById(R.id.edtText_emailinsert3);
+        editTextInsertEmail4= findViewById(R.id.edtText_emailinsert4);
+        editTextInsertEmail5= findViewById(R.id.edtText_emailinsert5);
+        editTextInsertEmail6= findViewById(R.id.edtText_emailinsert6);
+
+        imageViewAddress= (ImageView) findViewById(R.id.imgView_addressinsert);
+        textViewAddress= (TextView) findViewById(R.id.txtView_addressinsert);
+        editTextAddrees= (EditText) findViewById(R.id.edtText_addressinsert);
+
+        constraintLayoutDateInsert1=findViewById(R.id.ConstraintlayoutDateInsert1);
+        constraintLayoutDateInsert2=findViewById(R.id.ConstraintlayoutDateInsert2);
+        constraintLayoutDateInsert3=findViewById(R.id.ConstraintlayoutDateInsert3);
+        constraintLayoutDateInsert4=findViewById(R.id.ConstraintlayoutDateInsert4);
+        constraintLayoutDateInsert5=findViewById(R.id.ConstraintlayoutDateInsert5);
+        constraintLayoutDateInsert6=findViewById(R.id.ConstraintlayoutDateInsert6);
+        editTextInsertDate1= findViewById(R.id.edtText_dateinsert1);
+        editTextInsertDate2= findViewById(R.id.edtText_dateinsert2);
+        editTextInsertDate3= findViewById(R.id.edtText_dateinsert3);
+        editTextInsertDate4= findViewById(R.id.edtText_dateinsert4);
+        editTextInsertDate5= findViewById(R.id.edtText_dateinsert5);
+        editTextInsertDate6= findViewById(R.id.edtText_dateinsert6);
+
+
+
     }
-
-    public void CreateNewPhone(){
-        List<String> listphone = new ArrayList<>();
-        listphone.add("Mobile");
-        listphone.add("Home");
-        listphone.add("Work");
-        listphone.add("Main");
-        listphone.add("Other");
-        listphone.add("Custom");
-        ArrayAdapter<String> adapterSpinner = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,listphone);
-        adapterSpinner.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
-        PhoneContact contactphone= new PhoneContact("","",getText(R.string.phone).toString(),R.drawable.ic_phone,listphone);
-        arrayListPhone.add(contactphone);
-    }
-
-    public void CreateNewEmail(){
-        //---------------------------------------------Create new Email-------------------------------------------
-        EmailContact contactemail = new EmailContact("",getText(R.string.email).toString(),R.drawable.ic_message);
-        arrayListEmail.add(contactemail);
-    }
-
-    public void CreateNewDate(){
-        //---------------------------------------------Create new Date-------------------------------------------
-        List<String> listdate = new ArrayList<>();
-        listdate.add("Annyversary");
-        listdate.add("BirthDay");
-        listdate.add("Other");
-        listdate.add("Custom");
-        DateContact contactdate= new DateContact("","",getText(R.string.date).toString(),R.drawable.ic_calender,listdate);
-        arrayListDate.add(contactdate);
-    }
-
-
-
 
 
 
