@@ -57,16 +57,36 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         listView =(ListView) findViewById(R.id.danhsach);
         arrayList=new ArrayList<>();
         SQLite sqLite;
-        sqLite=new SQLite(this,"contact_contact.sqlite",null,1);
-        sqLite.QueryData("CREATE TABLE IF NOT EXISTS PEOPLE(IDCONTACTS INTEGER PRIMARY KEY AUTOINCREMENT, HINH BLOB, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), ADDRESS NVARCHAR(100) )");
-        sqLite.QueryData("CREATE TABLE IF NOT EXISTS PHONENUMBER(IDNUMBER INTEGER PRIMARY KEY AUTOINCREMENT, NUMBERS NVNARCHAR(10), NUMBERKIND NVARCHAR(10), IDCONTACTSNUMBER INTEGER, FOREIGN KEY(IDCONTACTSNUMBER) REFERENCES PEOPLE(IDCONTACTS) )");
-        sqLite.QueryData("CREATE TABLE IF NOT EXISTS MAIL(IDMAIL INTEGER PRIMARY KEY AUTOINCREMENT, MAIL NVNARCHAR(100), IDCONTACTSMAIL INTEGER, FOREIGN KEY(IDCONTACTSMAIL) REFERENCES PEOPLE(IDCONTACTS) )");
-        sqLite.QueryData("CREATE TABLE IF NOT EXISTS DATE(IDDATE INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME DATE(100), DATEKIND NVARCHAR(10), IDCONTACTSDATE INTEGER, FOREIGN KEY(IDCONTACTSDATE) REFERENCES PEOPLE(IDCONTACTS) )");
+        sqLite=new SQLite(this,"contact_new.sqlite",null,1);
+        sqLite.QueryData("CREATE TABLE IF NOT EXISTS PEOPLE(IDCONTACTS INTEGER PRIMARY KEY AUTOINCREMENT, HINH BLOB, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), ADDRESS NVARCHAR(100), " +
+                "NUMBERS1 NVNARCHAR(13), NUMBERKIND1 NVARCHAR(100), NUMBERS2 NVNARCHAR(13), NUMBERKIND2 NVARCHAR(100), NUMBERS3 NVNARCHAR(13), NUMBERKIND3 NVARCHAR(100), NUMBERS4 NVNARCHAR(13), NUMBERKIND4 NVARCHAR(100), NUMBERS5 NVNARCHAR(13), NUMBERKIND5 NVARCHAR(100), NUMBERS6 NVNARCHAR(13), NUMBERKIND6 NVARCHAR(100), " +
+                "MAIL1 NVNARCHAR(100), MAIL2 NVNARCHAR(100), MAIL3 NVNARCHAR(100), MAIL4 NVNARCHAR(100), MAIL5 NVNARCHAR(100), MAIL6 NVNARCHAR(100), " +
+                "DATETIME1 DATE(100), DATEKIND1 NVARCHAR(100), DATETIME2 DATE(100), DATEKIND2 NVARCHAR(100), DATETIME3 DATE(100), DATEKIND3 NVARCHAR(100), DATETIME4 DATE(100), DATEKIND4 NVARCHAR(100), DATETIME5 DATE(100), DATEKIND5 NVARCHAR(100), DATETIME6 DATE(100), DATEKIND6 NVARCHAR(100))");
+       // sqLite.QueryData("CREATE TABLE IF NOT EXISTS PHONENUMBER(IDNUMBER INTEGER PRIMARY KEY AUTOINCREMENT, NUMBERS NVNARCHAR(10), NUMBERKIND NVARCHAR(10), IDCONTACTSNUMBER INTEGER, FOREIGN KEY(IDCONTACTSNUMBER) REFERENCES PEOPLE(IDCONTACTS) )");
+       // sqLite.QueryData("CREATE TABLE IF NOT EXISTS MAIL(IDMAIL INTEGER PRIMARY KEY AUTOINCREMENT, MAIL NVNARCHAR(100), IDCONTACTSMAIL INTEGER, FOREIGN KEY(IDCONTACTSMAIL) REFERENCES PEOPLE(IDCONTACTS) )");
+       // sqLite.QueryData("CREATE TABLE IF NOT EXISTS DATE(IDDATE INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME DATE(100), DATEKIND NVARCHAR(10), IDCONTACTSDATE INTEGER, FOREIGN KEY(IDCONTACTSDATE) REFERENCES PEOPLE(IDCONTACTS) )");
         //thêm dữ liệu
-//        sqLite.Insertcontacts("R.drawable.hinh1","Hoan","Phung","thehoc");
-//        sqLite.Insertnumber("0322555","",1);
-//        sqLite.Insertdate("20/05/1998","",1);
-//        sqLite.Insertemail("@hufi",1);
+//        sqLite.Insertcontacts("R.drawable.hinh1","Hoan","Phùng","thehoc",
+//                "039870447","Phone","","","","","","","","","","",
+//                "@hufi","","","","","",
+//                "14/07/1998","sinhnhat","","","","","","","","","","");
+//        sqLite.Insertcontacts("R.drawable.hinh1","Vinh","Nguyen","thehoc",
+//                "0869871185","Phone","","","","","","","","","","",
+//                "@hufi","","","","","",
+//                "20/05/1998","sinhnhat","","","","","","","","","","");
+//        sqLite.Insertcontacts("R.drawable.hinh1","Hieu","Trong","thehoc",
+//                "0358166699","Phone","","","","","","","","","","",
+//                "@hufi","","","","","",
+//                "11/05/1998","sinhnhat","","","","","","","","","","");
+//        sqLite.Insertcontacts("R.drawable.hinh1","Thu","Trần","thehoc",
+//                "0985924900","Phone","","","","","","","","","","",
+//                "@hufi","","","","","",
+//                "12/12/1998","sinhnhat","","","","","","","","","","");
+//        sqLite.Insertcontacts("R.drawable.hinh1","Ninh","Bùi","thehoc",
+//                "0376007840","Phone","0376007840","Zalo","","","","","","","","",
+//                "@hufi","","","","","",
+//                "12/12/1998","sinhnhat","","","","","","","","","","");
+
 //
 //        sqLite.Insertcontacts("R.drawable.hinh1","Vinh","Nguyen","thehoc");
 //        sqLite.Insertnumber("0322333","",2);
@@ -94,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 //        sqLite.Insertemail("@hufi",6);
 
         Toast.makeText(MainActivity.this, "insert thanh cong", LENGTH_SHORT).show();
-        Cursor cursor= sqLite.GetData("SELECT * FROM PEOPLE, PHONENUMBER, MAIL, DATE WHERE PEOPLE.IDCONTACTS=PHONENUMBER.IDCONTACTSNUMBER AND PEOPLE.IDCONTACTS=MAIL.IDCONTACTSMAIL AND PEOPLE.IDCONTACTS=DATE.IDCONTACTSDATE");
+        Cursor cursor= sqLite.GetData("SELECT * FROM PEOPLE");
        //Cursor cursor=sqLite.GetData("DELETE FROM DATE");
         while (cursor.moveToNext()){
             arrayList.add(new people(cursor.getInt(0),
@@ -102,23 +122,40 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     cursor.getString(2),
                     cursor.getString(3),
                     cursor.getString(4),
-                    cursor.getInt(5),
+                    cursor.getString(5),
                     cursor.getString(6),
                     cursor.getString(7),
-                    cursor.getInt(8),
-                    cursor.getInt(9),
+                    cursor.getString(8),
+                    cursor.getString(9),
                     cursor.getString(10),
-                    cursor.getInt(11),
-                    cursor.getInt(12),
+                    cursor.getString(11),
+                    cursor.getString(12),
                     cursor.getString(13),
                     cursor.getString(14),
-                    cursor.getInt(15)
+                    cursor.getString(15),
+                    cursor.getString(16),
+                    cursor.getString(17),
+                    cursor.getString(18),
+                    cursor.getString(19),
+                    cursor.getString(20),
+                    cursor.getString(21),
+                    cursor.getString(22),
+                    cursor.getString(23),
+                    cursor.getString(24),
+                    cursor.getString(25),
+                    cursor.getString(26),
+                    cursor.getString(27),
+                    cursor.getString(28),
+                    cursor.getString(29),
+                    cursor.getString(30),
+                    cursor.getString(31),
+                    cursor.getString(32),
+                    cursor.getString(33),
+                    cursor.getString(34)
                     )
             );
 
         }
-
-
 
         Collections.sort(arrayList);
         adapter=new CustomListAdapter(this, R.layout.listitem, arrayList);
@@ -153,12 +190,40 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, activity_thongtinchitiet.class);
+                intent.putExtra("id", String.valueOf(arrayList.get(position).getID()));
                 intent.putExtra("firstname", String.valueOf(arrayList.get(position).getFIRST_NAME()));
                 intent.putExtra("lastname", String.valueOf(arrayList.get(position).getLAST_NAME()));
                 intent.putExtra("dc", String.valueOf(arrayList.get(position).getADDRESS()));
-                intent.putExtra("numberkind", String.valueOf(arrayList.get(position).getNUMBERKIND()));
-                intent.putExtra("numberphone", String.valueOf(arrayList.get(position).getNUMBERS()));
-                intent.putExtra("Mail", String.valueOf(arrayList.get(position).getMAIL()));
+                intent.putExtra("numberkind1", String.valueOf(arrayList.get(position).getNUMBERKIND1()));
+                intent.putExtra("numberphone1", String.valueOf(arrayList.get(position).getNUMBERS1()));
+                intent.putExtra("numberkind2", String.valueOf(arrayList.get(position).getNUMBERKIND2()));
+                intent.putExtra("numberphone2", String.valueOf(arrayList.get(position).getNUMBERS2()));
+                intent.putExtra("numberkind3", String.valueOf(arrayList.get(position).getNUMBERKIND3()));
+                intent.putExtra("numberphone3", String.valueOf(arrayList.get(position).getNUMBERS3()));
+                intent.putExtra("numberkind4", String.valueOf(arrayList.get(position).getNUMBERKIND4()));
+                intent.putExtra("numberphone4", String.valueOf(arrayList.get(position).getNUMBERS4()));
+                intent.putExtra("numberkind5", String.valueOf(arrayList.get(position).getNUMBERKIND5()));
+                intent.putExtra("numberphone5", String.valueOf(arrayList.get(position).getNUMBERS5()));
+                intent.putExtra("numberkind6", String.valueOf(arrayList.get(position).getNUMBERKIND6()));
+                intent.putExtra("numberphone6", String.valueOf(arrayList.get(position).getNUMBERS6()));
+                intent.putExtra("Mail1", String.valueOf(arrayList.get(position).getMAIL1()));
+                intent.putExtra("Mail2", String.valueOf(arrayList.get(position).getMAIL2()));
+                intent.putExtra("Mail3", String.valueOf(arrayList.get(position).getMAIL3()));
+                intent.putExtra("Mail4", String.valueOf(arrayList.get(position).getMAIL4()));
+                intent.putExtra("Mail5", String.valueOf(arrayList.get(position).getMAIL5()));
+                intent.putExtra("Mail6", String.valueOf(arrayList.get(position).getMAIL6()));
+                intent.putExtra("datekind1", String.valueOf(arrayList.get(position).getDATEKIND1()));
+                intent.putExtra("date1", String.valueOf(arrayList.get(position).getDATETIME1()));
+                intent.putExtra("datekind2", String.valueOf(arrayList.get(position).getDATEKIND2()));
+                intent.putExtra("date2", String.valueOf(arrayList.get(position).getDATETIME2()));
+                intent.putExtra("datekind3", String.valueOf(arrayList.get(position).getDATEKIND3()));
+                intent.putExtra("date3", String.valueOf(arrayList.get(position).getDATETIME3()));
+                intent.putExtra("datekind4", String.valueOf(arrayList.get(position).getDATEKIND4()));
+                intent.putExtra("date4", String.valueOf(arrayList.get(position).getDATETIME4()));
+                intent.putExtra("datekind5", String.valueOf(arrayList.get(position).getDATEKIND5()));
+                intent.putExtra("date5", String.valueOf(arrayList.get(position).getDATETIME5()));
+                intent.putExtra("datekind6", String.valueOf(arrayList.get(position).getDATEKIND6()));
+                intent.putExtra("date6", String.valueOf(arrayList.get(position).getDATETIME6()));
                 startActivity(intent);
             }
         });

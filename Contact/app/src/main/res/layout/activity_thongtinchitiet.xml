@@ -175,7 +175,9 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -185,8 +187,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/diachi"
@@ -198,23 +201,188 @@
                 android:textColor="@android:color/black"
                 android:textSize="20dp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/dc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ngay1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/datekind1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/date1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:textColor="@android:color/black"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
-
         <LinearLayout
+            android:id="@+id/ngay2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/mail"
+                android:id="@+id/datekind2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/date2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ngay3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/datekind3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/date3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ngay4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/datekind4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/date4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ngay5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/datekind5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/date5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ngay6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/datekind6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/date6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/email1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mail1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
@@ -223,71 +391,196 @@
                 android:text="Mail:"
                 android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/txtemail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:layout_weight="1"
-                android:textSize="20dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/txtemail1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:textColor="@android:color/black"
                 android:layout_marginRight="10dp"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/sdt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
-
         <LinearLayout
+            android:id="@+id/email2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/mail2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:text="Mail:"
                 android:textSize="20dp" />
 
+            <EditText
+                android:id="@+id/txtemail2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/email3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
             <TextView
+                android:id="@+id/mail3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Mail:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtemail3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/email4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mail4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Mail:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtemail4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/email5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mail5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Mail:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtemail5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/email6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mail6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Mail:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtemail6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sodt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/numberkind1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <EditText
                 android:id="@+id/sdt1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:textSize="20dp" />
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textIsSelectable="false"/>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/sodt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/numberkind2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
@@ -295,23 +588,28 @@
                 android:layout_marginRight="10dp"
                 android:textSize="20dp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/sdt2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:textColor="@android:color/black"
                 android:layout_weight="1"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textIsSelectable="false"/>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/sodt3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/numberkind3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
@@ -319,14 +617,98 @@
                 android:layout_marginRight="10dp"
                 android:textSize="20dp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/sdt3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sodt4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/numberkind4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/sdt4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sodt5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/numberkind5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/sdt5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sodt6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/numberkind6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/sdt6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:textColor="@android:color/black"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
     </LinearLayout>>
-
+    </ScrollView>
 </LinearLayout>

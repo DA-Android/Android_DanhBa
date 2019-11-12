@@ -60,9 +60,9 @@ public class CustomListAdapter_ttct extends BaseAdapter {
         }
         people p=listData.get(position);
         holder.dc.setText(p.getADDRESS());
-        holder.tensdt.setText(p.getNUMBERKIND());
-        holder.sodt.setText(p.getNUMBERS());
-        holder.mail.setText(p.getMAIL());
+        holder.tensdt.setText(p.getNUMBERKIND1());
+        holder.sodt.setText(p.getNUMBERS1());
+        holder.mail.setText(p.getMAIL1());
         //byte[] hinhanh=p.getHINH();
         //Bitmap bitmap=BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
         //holder.imghinh.setImageBitmap(bitmap);

@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GestureDetectorCompat;
 
 import android.accounts.OnAccountsUpdateListener;
+import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.text.Editable;
@@ -44,7 +45,7 @@ public class DeleteActivity extends AppCompatActivity {
     int max=100;
     int min=100;
     ImageView imageViewAddress;
-    EditText editTextAddrees;
+    EditText editTextAddrees, editTextFirst, editTextLast;
     TextView textViewAddress;
 
     ConstraintLayout constraintLayoutPhoneDelete1;
@@ -553,6 +554,8 @@ public class DeleteActivity extends AppCompatActivity {
         imageViewAddress= (ImageView) findViewById(R.id.imgView_addressdelete);
         textViewAddress= (TextView) findViewById(R.id.txtView_addressdelete);
         editTextAddrees= (EditText) findViewById(R.id.edtText_addressdelete);
+        editTextFirst=findViewById(R.id.editTextFirst);
+        editTextLast=findViewById(R.id.editTextLastName);
 
         constraintLayoutPhoneDelete1=findViewById(R.id.ConstraintlayoutPhoneDelete1);
         constraintLayoutPhoneDelete2=findViewById(R.id.ConstraintlayoutPhoneDelete2);
@@ -592,7 +595,11 @@ public class DeleteActivity extends AppCompatActivity {
         editTextDeleteDate4= findViewById(R.id.edtText_datedelete4);
         editTextDeleteDate5= findViewById(R.id.edtText_datedelete5);
         editTextDeleteDate6= findViewById(R.id.edtText_datedelete6);
-
+        Intent intent = getIntent();
+        String[] output = intent.getStringExtra("name").split("\\s");
+        editTextFirst.setText(output[0]);
+        editTextLast.setText(output[1]);
+        editTextAddrees.setText(intent.getStringExtra("dc"));
     }
 
     @Override

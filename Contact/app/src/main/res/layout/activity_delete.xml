@@ -5,14 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DeleteActivity"
-    android:background="#FFFFFF"
-    >
-
-
-
-
-
-
+    android:background="#FFFFFF">
 
     <ImageView
         android:id="@+id/imageView"
@@ -22,9 +15,8 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_add"
+        app:srcCompat="@android:drawable/ic_menu_add" />
 
-        />
     <EditText
         android:id="@+id/editTextFirst"
         android:layout_width="220dp"
@@ -38,6 +30,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
     <EditText
         android:id="@+id/editTextLastName"
         android:layout_width="220dp"
