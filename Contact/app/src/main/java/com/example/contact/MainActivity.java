@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
        // sqLite.QueryData("CREATE TABLE IF NOT EXISTS DATE(IDDATE INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME DATE(100), DATEKIND NVARCHAR(10), IDCONTACTSDATE INTEGER, FOREIGN KEY(IDCONTACTSDATE) REFERENCES PEOPLE(IDCONTACTS) )");
         //thêm dữ liệu
 //        sqLite.Insertcontacts("R.drawable.hinh1","Hoan","Phùng","thehoc",
-//                "039870447","Phone","","","","","","","","","","",
+//                "0398704477","Phone","0869871185","Home","","","","","","","","",
 //                "@hufi","","","","","",
 //                "14/07/1998","sinhnhat","","","","","","","","","","");
 //        sqLite.Insertcontacts("R.drawable.hinh1","Vinh","Nguyen","thehoc",
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         Toast.makeText(MainActivity.this, "insert thanh cong", LENGTH_SHORT).show();
         Cursor cursor= sqLite.GetData("SELECT * FROM PEOPLE");
-       //Cursor cursor=sqLite.GetData("DELETE FROM DATE");
+       //Cursor cursor=sqLite.GetData("DELETE FROM PEOPLE");
         while (cursor.moveToNext()){
             arrayList.add(new people(cursor.getInt(0),
                     cursor.getBlob(1),
@@ -238,6 +238,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
         editsearch = (SearchView) findViewById(R.id.search);
+        editsearch.setQuery("",false);
         editsearch.setOnQueryTextListener(this);
     }
     private List<listitem> getListData() {

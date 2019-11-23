@@ -322,6 +322,90 @@ public class activity_thongtinchitiet extends AppCompatActivity {
             }
         });
 
+        sodt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(activity_thongtinchitiet.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_thongtinchitiet.this,new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else {
+                    Call(Integer.parseInt(sdt1.getText().toString()));
+                }
+            }
+        });
+        sodt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(activity_thongtinchitiet.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_thongtinchitiet.this,new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else {
+                    Call(Integer.parseInt(sdt2.getText().toString()));
+                }
+            }
+        });
+        sodt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(activity_thongtinchitiet.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_thongtinchitiet.this,new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else {
+                    Call(Integer.parseInt(sdt3.getText().toString()));
+                }
+            }
+        });
+        sodt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(activity_thongtinchitiet.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_thongtinchitiet.this,new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else {
+                    Call(Integer.parseInt(sdt4.getText().toString()));
+                }
+            }
+        });
+        sodt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(activity_thongtinchitiet.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_thongtinchitiet.this,new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else {
+                    Call(Integer.parseInt(sdt4.getText().toString()));
+                }
+            }
+        });
+        sodt5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(activity_thongtinchitiet.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_thongtinchitiet.this,new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else {
+                    Call(Integer.parseInt(sdt5.getText().toString()));
+                }
+            }
+        });
+        sodt6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(activity_thongtinchitiet.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    ActivityCompat.requestPermissions(activity_thongtinchitiet.this,new String[]{Manifest.permission.CALL_PHONE},1);
+                }
+                else {
+                    Call(Integer.parseInt(sdt6.getText().toString()));
+                }
+            }
+        });
         btn_Call = findViewById(R.id.Call);
         btn_Call.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -417,7 +501,7 @@ public class activity_thongtinchitiet extends AppCompatActivity {
     //  nhắn tin
     public  void SMS(int number)
     {
-        Intent intent  = new Intent(Intent.ACTION_VIEW,Uri.parse("sms:"+number));
+        Intent intent  = new Intent(Intent.ACTION_VIEW,Uri.parse("sms: +84"+number));
         startActivity(intent);
     }
 

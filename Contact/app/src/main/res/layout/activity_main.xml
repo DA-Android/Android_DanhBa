@@ -60,6 +60,7 @@
             android:id="@+id/search"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:iconifiedByDefault="false"/>
 
     </LinearLayout>

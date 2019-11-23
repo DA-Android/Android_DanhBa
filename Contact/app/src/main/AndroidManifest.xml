@@ -8,12 +8,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_thongtinchitiet"></activity>
+        <activity android:name=".activity_thongtinchitiet" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".activity_insert"
            android:windowSoftInputMode="adjustPan" ></activity><!--        // cho nay la khong cho no di len nè nhe-->
-        <activity android:name=".adapter.DateAdapter" />
-        <activity android:name=".adapter.EmailAdapter" />
-        <activity android:name=".adapter.PhoneAdapter" />
+        <activity android:name=".adapter.DateAdapter" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".adapter.EmailAdapter" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".adapter.PhoneAdapter" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".DeleteActivity"
             android:windowSoftInputMode="adjustPan" /><!--        // cho nay la khong cho no di len nè nhe-->
         <activity android:name=".MainActivity" android:windowSoftInputMode="stateHidden">

@@ -208,7 +208,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:textSize="20dp" />
         </LinearLayout>
         <LinearLayout
@@ -234,7 +234,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -261,7 +261,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -288,7 +288,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -315,7 +315,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -342,7 +342,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -369,7 +369,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -397,7 +397,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -425,7 +425,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -453,7 +453,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -481,7 +481,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -509,7 +509,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -537,7 +537,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -559,14 +559,15 @@
                 android:textColor="@android:color/black"
                 android:textSize="20dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/sdt1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:background="@drawable/lines"
                 android:layout_weight="1"
-                android:textColor="@android:color/black"
+                android:textColor="#1416FF"
                 android:textSize="20dp"
                 android:textIsSelectable="false"/>
         </LinearLayout>
@@ -588,13 +589,14 @@
                 android:layout_marginRight="10dp"
                 android:textSize="20dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/sdt2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:background="@drawable/lines"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp"
                 android:textIsSelectable="false"/>
@@ -617,13 +619,14 @@
                 android:layout_marginRight="10dp"
                 android:textSize="20dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/sdt3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:background="@drawable/lines"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -645,13 +648,14 @@
                 android:layout_marginRight="10dp"
                 android:textSize="20dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/sdt4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:background="@drawable/lines"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -672,13 +676,14 @@
                 android:layout_marginRight="10dp"
                 android:textSize="20dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/sdt5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:background="@drawable/lines"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -699,13 +704,14 @@
                 android:layout_marginRight="10dp"
                 android:textSize="20dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/sdt6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@android:color/black"
+                android:background="@drawable/lines"
+                android:textColor="#1416FF"
                 android:layout_weight="1"
                 android:textSize="20dp" />
         </LinearLayout>
