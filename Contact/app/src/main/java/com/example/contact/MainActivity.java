@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());
 
 
-        btn1 =findViewById(R.id.suaxoa);
         btn_them = findViewById(R.id.them);
         listView =(ListView) findViewById(R.id.danhsach);
         arrayList=new ArrayList<>();
@@ -235,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,activity_insert.class);
                 startActivity(intent);
+                adapter.notifyDataSetChanged();
             }
         });
         editsearch = (SearchView) findViewById(R.id.search);

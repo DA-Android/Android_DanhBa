@@ -17,12 +17,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
+
     <EditText
-        android:id="@+id/editTextFirst"
+        android:id="@+id/editTextFirstDelete"
         android:layout_width="220dp"
         android:layout_height="55dp"
-        android:layout_marginTop="32dp"
 
+        android:layout_marginTop="32dp"
         android:hint="@string/first_name"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,21 +33,18 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextLastName"
+        android:id="@+id/editTextLastNameDelete"
         android:layout_width="220dp"
         android:layout_height="55dp"
-        android:hint="@string/last_name"
 
+        android:layout_marginTop="0dp"
+        android:hint="@string/last_name"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFirst"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFirstDelete"
         tools:ignore="MissingConstraints" />
-
-
-
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewPhoneDelete"
@@ -92,7 +90,8 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
             <EditText
                 android:enabled="true"
 
@@ -150,10 +149,10 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"/>
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
             <EditText
                 android:enabled="true"
-
                 android:id="@+id/edtText_kind_phonedelete2"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -207,10 +206,10 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"/>
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
             <EditText
                 android:enabled="true"
-
                 android:id="@+id/edtText_kind_phonedelete3"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -264,10 +263,10 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"/>
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
             <EditText
                 android:enabled="true"
-
                 android:id="@+id/edtText_kind_phonedelete4"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -321,10 +320,10 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"/>
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
             <EditText
                 android:enabled="true"
-
                 android:id="@+id/edtText_kind_phonedelete5"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -378,10 +377,10 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"/>
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
             <EditText
                 android:enabled="true"
-
                 android:id="@+id/edtText_kind_phonedelete6"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -731,14 +730,13 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"></EditText>
+                tools:ignore="MissingConstraints"
+                android:inputType="date"></EditText>
             <EditText
                 android:id="@+id/edtText_kind_datedelete1"
-
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:enabled="true"
-                android:inputType=""
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/edtText_datedelete1"
                 app:layout_constraintTop_toBottomOf="@+id/edtText_datedelete1"
@@ -787,14 +785,13 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"></EditText>
+                tools:ignore="MissingConstraints"
+                android:inputType="date"></EditText>
             <EditText
                 android:id="@+id/edtText_kind_datedelete2"
-
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:enabled="true"
-                android:inputType=""
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/edtText_datedelete2"
                 app:layout_constraintTop_toBottomOf="@+id/edtText_datedelete2"
@@ -843,14 +840,14 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"></EditText>
+                tools:ignore="MissingConstraints"
+                android:inputType="date"></EditText>
             <EditText
                 android:id="@+id/edtText_kind_datedelete3"
 
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:enabled="true"
-                android:inputType=""
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/edtText_datedelete3"
                 app:layout_constraintTop_toBottomOf="@+id/edtText_datedelete3"
@@ -899,14 +896,13 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"></EditText>
+                tools:ignore="MissingConstraints"
+                android:inputType="date"></EditText>
             <EditText
                 android:id="@+id/edtText_kind_datedelete4"
-
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:enabled="true"
-                android:inputType=""
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/edtText_datedelete4"
                 app:layout_constraintTop_toBottomOf="@+id/edtText_datedelete4"
@@ -955,14 +951,13 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"></EditText>
+                tools:ignore="MissingConstraints"
+                android:inputType="date"></EditText>
             <EditText
                 android:id="@+id/edtText_kind_datedelete5"
-
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:enabled="true"
-                android:inputType=""
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/edtText_datedelete5"
                 app:layout_constraintTop_toBottomOf="@+id/edtText_datedelete5"
@@ -1011,14 +1006,13 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"></EditText>
+                tools:ignore="MissingConstraints"
+                android:inputType="date"></EditText>
             <EditText
                 android:id="@+id/edtText_kind_datedelete6"
-
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:enabled="true"
-                android:inputType=""
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/edtText_datedelete6"
                 app:layout_constraintTop_toBottomOf="@+id/edtText_datedelete6"
@@ -1056,15 +1050,11 @@
     </androidx.cardview.widget.CardView>
 
 
-
-
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewDelete"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-
+        android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -1082,7 +1072,7 @@
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="@drawable/shapedelete"
-                android:src="@drawable/icdelete"
+                android:src="@drawable/ic_delete"
                 android:text="" />
 
             <ImageButton
@@ -1092,7 +1082,7 @@
                 android:layout_marginStart="1dp"
                 android:layout_weight="1"
                 android:background="@drawable/shapesave"
-                android:src="@android:drawable/ic_menu_save"
+                android:src="@drawable/ic_save"
                 android:text="" />
         </RadioGroup>
     </androidx.cardview.widget.CardView>

@@ -1,5 +1,6 @@
 package com.example.contact;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.provider.Contacts;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -23,10 +25,76 @@ public class SQLite extends SQLiteOpenHelper {
 
     }
 
+    SQLiteDatabase db = this.getWritableDatabase();
     public void QueryData(String sql)
     {
-        SQLiteDatabase db=getWritableDatabase();
+         db=getWritableDatabase();
         db.execSQL(sql);
+    }
+    void Upadatecontacts(String ID,String hinh, String FIRST_NAME, String LAST_NAME, String ADDRESS,
+                         String NUMBERS1, String NUMBERKIND1, String NUMBERS2, String NUMBERKIND2, String NUMBERS3, String NUMBERKIND3, String NUMBERS4, String NUMBERKIND4, String NUMBERS5, String NUMBERKIND5, String NUMBERS6, String NUMBERKIND6,
+                         String MAIL1, String MAIL2, String MAIL3, String MAIL4, String MAIL5, String MAIL6,
+                         String DATETIME1, String DATEKIND1, String DATETIME2, String DATEKIND2, String DATETIME3, String DATEKIND3, String DATETIME4, String DATEKIND4, String DATETIME5, String DATEKIND5, String DATETIME6, String DATEKIND6)
+    {
+        ContentValues values= new ContentValues();
+        values.put("HINH",hinh);
+        values.put("FIRSTNAME",FIRST_NAME);
+        values.put("LASTNAME",LAST_NAME);
+        values.put("ADDRESS",ADDRESS);
+        values.put("NUMBERS1",NUMBERS1);
+        values.put("NUMBERKIND1",NUMBERKIND1);
+        values.put("NUMBERS2",NUMBERS2);
+        values.put("NUMBERKIND2",NUMBERKIND2);
+        values.put("NUMBERS3",NUMBERS3);
+        values.put("NUMBERKIND3",NUMBERKIND3);
+        values.put("NUMBERS4",NUMBERS4);
+        values.put("NUMBERKIND4",NUMBERKIND4);
+        values.put("NUMBERS5",NUMBERS5);
+        values.put("NUMBERKIND5",NUMBERKIND5);
+        values.put("NUMBERS6",NUMBERS6);
+        values.put("NUMBERKIND6",NUMBERKIND6);
+        values.put("MAIL1",MAIL1);
+        values.put("MAIL2",MAIL2);
+        values.put("MAIL3",MAIL3);
+        values.put("MAIL4",MAIL4);
+        values.put("MAIL5",MAIL5);
+        values.put("MAIL6",MAIL6);
+        values.put("DATETIME1",DATETIME1);
+        values.put("DATEKIND1",DATEKIND1);
+        values.put("DATETIME2",DATETIME2);
+        values.put("DATEKIND2",DATEKIND2);
+        values.put("DATETIME3",DATETIME3);
+        values.put("DATEKIND3",DATEKIND3);
+        values.put("DATETIME4",DATETIME4);
+        values.put("DATEKIND4",DATEKIND4);
+        values.put("DATETIME5",DATETIME5);
+        values.put("DATEKIND5",DATEKIND5);
+        values.put("DATEKIND6",DATETIME6);
+        values.put("DATETIME6",DATEKIND6);
+
+        int resurft=db.update("PEOPLE",values, "IDCONTACTS = ?", new String[] { ID });
+        db.close();
+        if(resurft==0)
+        {
+            //fail
+        }
+        else
+        {
+            //success
+        }
+    }
+    void Deletecontacts(String ID)
+    {
+        int resurft=db.delete("PEOPLE", "IDCONTACTS = ?", new String[] { ID });
+        db.close();
+        if(resurft==0)
+        {
+            //fail
+        }
+        else
+        {
+            //success
+        }
     }
     void Insertcontacts(String hinh, String FIRST_NAME, String LAST_NAME, String ADDRESS,
                         String NUMBERS1, String NUMBERKIND1, String NUMBERS2, String NUMBERKIND2, String NUMBERS3, String NUMBERKIND3, String NUMBERS4, String NUMBERKIND4, String NUMBERS5, String NUMBERKIND5, String NUMBERS6, String NUMBERKIND6,
@@ -41,7 +109,7 @@ public class SQLite extends SQLiteOpenHelper {
 //        byte[] hinhanh=byteArray.toByteArray();
         //-----------------------------------------------------------------------------
 
-        SQLiteDatabase db=getWritableDatabase();
+         db=getWritableDatabase();
         String sql="Insert into PEOPLE values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         SQLiteStatement sqLiteStatement=db.compileStatement(sql);
         sqLiteStatement.clearBindings();
