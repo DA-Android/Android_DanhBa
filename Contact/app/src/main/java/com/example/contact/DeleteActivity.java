@@ -41,11 +41,17 @@ import java.util.List;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class DeleteActivity extends AppCompatActivity {
+    private static String ID = null;
     private GestureDetectorCompat mDetector;
     int max=100;
     int min=100;
+    EditText editTextFirstName;
+    EditText editTextLastName;
+
+
+
+
     ImageView imageViewAddress;
-    EditText editTextAddrees, editTextFirst, editTextLast;
     TextView textViewAddress;
 
     ConstraintLayout constraintLayoutPhoneDelete1;
@@ -74,6 +80,8 @@ public class DeleteActivity extends AppCompatActivity {
     EditText editTextDeleteEmail5;
     EditText editTextDeleteEmail6;
 
+    EditText editTextAddrees;
+
     ConstraintLayout constraintLayoutDateDelete1;
     ConstraintLayout constraintLayoutDateDelete2;
     ConstraintLayout constraintLayoutDateDelete3;
@@ -94,6 +102,24 @@ public class DeleteActivity extends AppCompatActivity {
     ActionBar actionBar;
 
     ImageButton btndelete;
+    ImageButton btnSave;
+
+
+    Spinner spinnerPhone1;
+    Spinner spinnerPhone2;
+    Spinner spinnerPhone3;
+    Spinner spinnerPhone4;
+    Spinner spinnerPhone5;
+    Spinner spinnerPhone6;
+
+    Spinner spinnerDate1;
+    Spinner spinnerDate2;
+    Spinner spinnerDate3;
+    Spinner spinnerDate4;
+    Spinner spinnerDate5;
+    Spinner spinnerDate6;
+
+
     ConstraintLayout constraintLayoutDelete;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -511,15 +537,145 @@ public class DeleteActivity extends AppCompatActivity {
             }
         });
 
+        //load du lieu tu thong tin chi tiet--------------------------------------------------------
+
+        loadData();
 
         //click delete------------------------------------------------------------------------------
 
+        final SQLite sqLite=new SQLite(this,"contact_new.sqlite",null,1);
         btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                sqLite.Deletecontacts(ID);
+                finish();
             }
         });
+        //click save------------------------------------------------------------------------------
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateToSQLite();
+                finish();
+            }
+        });
+
+    
+    }
+
+    private void loadData() {
+
+        Intent intent= getIntent();
+        ID=intent.getStringExtra("id");
+        editTextFirstName.setText(intent.getStringExtra("Fname"));
+        editTextLastName.setText(intent.getStringExtra("Lname"));
+        editTextAddrees.setText(intent.getStringExtra("dc"));
+        spinnerPhone1.setSelection(intent.getIntExtra("numberkind1",1));
+        spinnerPhone2.setSelection(intent.getIntExtra("numberkind2",1));
+        spinnerPhone3.setSelection(intent.getIntExtra("numberkind3",1));
+        spinnerPhone4.setSelection(intent.getIntExtra("numberkind4",1));
+        spinnerPhone5.setSelection(intent.getIntExtra("numberkind5",1));
+        spinnerPhone6.setSelection(intent.getIntExtra("numberkind6",1));
+        editTextDeletePhone1.setText(intent.getStringExtra("numberphone1"));
+        editTextDeletePhone2.setText(intent.getStringExtra("numberphone2"));
+        editTextDeletePhone3.setText(intent.getStringExtra("numberphone3"));
+        editTextDeletePhone4.setText(intent.getStringExtra("numberphone4"));
+        editTextDeletePhone5.setText(intent.getStringExtra("numberphone5"));
+        editTextDeletePhone6.setText(intent.getStringExtra("numberphone6"));
+        editTextDeleteEmail1.setText(intent.getStringExtra("Mail1"));
+        editTextDeleteEmail1.setText(intent.getStringExtra("Mail2"));
+        editTextDeleteEmail1.setText(intent.getStringExtra("Mail3"));
+        editTextDeleteEmail1.setText(intent.getStringExtra("Mail4"));
+        editTextDeleteEmail1.setText(intent.getStringExtra("Mail5"));
+        editTextDeleteEmail1.setText(intent.getStringExtra("Mail6"));
+        spinnerDate1.setSelection(intent.getIntExtra("datekind1",1));
+        spinnerDate2.setSelection(intent.getIntExtra("datekind2",1));
+        spinnerDate3.setSelection(intent.getIntExtra("datekind3",1));
+        spinnerDate4.setSelection(intent.getIntExtra("datekind4",1));
+        spinnerDate5.setSelection(intent.getIntExtra("datekind5",1));
+        spinnerDate6.setSelection(intent.getIntExtra("datekind6",1));
+        editTextDeleteDate1.setText(intent.getStringExtra("date1"));
+        editTextDeleteDate1.setText(intent.getStringExtra("date2"));
+        editTextDeleteDate1.setText(intent.getStringExtra("date3"));
+        editTextDeleteDate1.setText(intent.getStringExtra("date4"));
+        editTextDeleteDate1.setText(intent.getStringExtra("date5"));
+        editTextDeleteDate1.setText(intent.getStringExtra("date6"));
+
+    }
+
+    private void updateToSQLite() {
+        if(editTextFirstName.getText().length()<=0&& editTextLastName.getText().length()<=0
+                &&editTextDeleteDate1.getText().length()<=0&&editTextDeleteDate2.getText().length()<=0&&editTextDeleteDate3.getText().length()<=0&&editTextDeleteDate4.getText().length()<=0&&editTextDeleteDate5.getText().length()<=0&&editTextDeleteDate6.getText().length()<=0
+                &&editTextDeletePhone1.getText().length()<=0&&editTextDeletePhone2.getText().length()<=0&&editTextDeletePhone3.getText().length()<=0&&editTextDeletePhone4.getText().length()<=0&&editTextDeletePhone5.getText().length()<=0&&editTextDeletePhone6.getText().length()<=0
+                &&editTextAddrees.getText().length()<=0
+                &&editTextDeleteEmail1.getText().length()<=0&&editTextDeleteEmail2.getText().length()<=0&&editTextDeleteEmail3.getText().length()<=0&&editTextDeleteEmail4.getText().length()<=0&&editTextDeleteEmail5.getText().length()<=0&&editTextDeleteEmail6.getText().length()<=0)
+        {
+            onBackPressed();
+        }
+        else {
+            //thêm dữ liệu
+            SQLite sqLite=new SQLite(this,"contact_new.sqlite",null,1);
+            String spinPhone1= "";
+            String spinPhone2= "";
+            String spinPhone3= "";
+            String spinPhone4= "";
+            String spinPhone5= "";
+            String spinPhone6= "";
+            if(spinnerPhone1.getSelectedItem()!=null&&editTextDeletePhone1.getText().length()>0) {
+                spinPhone1 = spinnerPhone1.getSelectedItem().toString();
+            }
+            if(spinnerPhone2.getSelectedItem()!=null&&editTextDeletePhone2.getText().length()>0) {
+                spinPhone2 = spinnerPhone2.getSelectedItem().toString();
+            }
+            if(spinnerPhone3.getSelectedItem()!=null&&editTextDeletePhone3.getText().length()>0) {
+                spinPhone3 = spinnerPhone3.getSelectedItem().toString();
+            }
+            if(spinnerPhone4.getSelectedItem()!=null&&editTextDeletePhone4.getText().length()>0) {
+                spinPhone4 = spinnerPhone4.getSelectedItem().toString();
+            }
+            if(spinnerPhone5.getSelectedItem()!=null&&editTextDeletePhone5.getText().length()>0) {
+                spinPhone5 = spinnerPhone5.getSelectedItem().toString();
+            }
+            if(spinnerPhone6.getSelectedItem()!=null&&editTextDeletePhone6.getText().length()>0) {
+                spinPhone6 = spinnerPhone6.getSelectedItem().toString();
+            }
+
+            String spinDate1= "";
+            String spinDate2= "";
+            String spinDate3= "";
+            String spinDate4= "";
+            String spinDate5= "";
+            String spinDate6= "";
+            if(spinnerDate1.getSelectedItem()!=null&&editTextDeleteDate1.getText().length()>0) {
+                spinDate1 = spinnerDate1.getSelectedItem().toString();
+            }
+            if(spinnerDate2.getSelectedItem()!=null&&editTextDeleteDate2.getText().length()>0) {
+                spinDate2 = spinnerDate2.getSelectedItem().toString();
+            }
+            if(spinnerDate3.getSelectedItem()!=null&&editTextDeleteDate3.getText().length()>0) {
+                spinDate3 = spinnerDate3.getSelectedItem().toString();
+            }
+            if(spinnerDate4.getSelectedItem()!=null&&editTextDeleteDate4.getText().length()>0) {
+                spinDate4 = spinnerDate4.getSelectedItem().toString();
+            }
+            if(spinnerDate5.getSelectedItem()!=null&&editTextDeleteDate5.getText().length()>0) {
+                spinDate5 = spinnerDate5.getSelectedItem().toString();
+            }
+            if(spinnerDate6.getSelectedItem()!=null&&editTextDeleteDate6.getText().length()>0) {
+                spinDate6 = spinnerDate6.getSelectedItem().toString();
+            }
+
+
+            sqLite.Upadatecontacts(ID,"R.drawable.hinh1",editTextFirstName.getText().toString(),editTextLastName.getText().toString(),editTextAddrees.getText().toString(),
+                    editTextDeletePhone1.getText().toString(),spinPhone1,editTextDeletePhone2.getText().toString(),spinPhone2,editTextDeletePhone3.getText().toString(),spinPhone3,editTextDeletePhone4.getText().toString(),spinPhone4,editTextDeletePhone5.getText().toString(),spinPhone5,editTextDeletePhone6.getText().toString(),spinPhone6,
+                    editTextDeleteEmail1.getText().toString(),editTextDeleteEmail2.getText().toString(),editTextDeleteEmail3.getText().toString(),editTextDeleteEmail4.getText().toString(),editTextDeleteEmail5.getText().toString(),editTextDeleteEmail6.getText().toString(),
+                    editTextDeleteDate1.getText().toString(),spinDate1,editTextDeleteDate2.getText().toString(),spinDate2,editTextDeleteDate3.getText().toString(),spinDate3,editTextDeleteDate4.getText().toString(),spinDate4,editTextDeleteDate5.getText().toString(),spinDate5,editTextDeleteDate6.getText().toString(),spinDate6);
+
+
+            finish();
+            startActivity(getIntent());
+        }
     }
 
 
@@ -549,13 +705,16 @@ public class DeleteActivity extends AppCompatActivity {
 
     public void setWidget(){
 
+        editTextFirstName= findViewById(R.id.editTextFirstDelete);
+        editTextLastName= findViewById(R.id.editTextLastNameDelete);
+
         btndelete= findViewById(R.id.btnDelete);
+        btnSave= findViewById(R.id.btnSave);
+
 
         imageViewAddress= (ImageView) findViewById(R.id.imgView_addressdelete);
         textViewAddress= (TextView) findViewById(R.id.txtView_addressdelete);
         editTextAddrees= (EditText) findViewById(R.id.edtText_addressdelete);
-        editTextFirst=findViewById(R.id.editTextFirst);
-        editTextLast=findViewById(R.id.editTextLastName);
 
         constraintLayoutPhoneDelete1=findViewById(R.id.ConstraintlayoutPhoneDelete1);
         constraintLayoutPhoneDelete2=findViewById(R.id.ConstraintlayoutPhoneDelete2);
@@ -595,11 +754,32 @@ public class DeleteActivity extends AppCompatActivity {
         editTextDeleteDate4= findViewById(R.id.edtText_datedelete4);
         editTextDeleteDate5= findViewById(R.id.edtText_datedelete5);
         editTextDeleteDate6= findViewById(R.id.edtText_datedelete6);
-        Intent intent = getIntent();
-        String[] output = intent.getStringExtra("name").split("\\s");
-        editTextFirst.setText(output[0]);
-        editTextLast.setText(output[1]);
-        editTextAddrees.setText(intent.getStringExtra("dc"));
+
+
+        //spinner
+        spinnerPhone1 = findViewById(R.id.spinner_kind_phonedelete1);
+        spinnerPhone2 = findViewById(R.id.spinner_kind_phonedelete2);
+        spinnerPhone3 = findViewById(R.id.spinner_kind_phonedelete3);
+        spinnerPhone4 = findViewById(R.id.spinner_kind_phonedelete4);
+        spinnerPhone5 = findViewById(R.id.spinner_kind_phonedelete5);
+        spinnerPhone6 = findViewById(R.id.spinner_kind_phonedelete6);
+
+        spinnerDate1 = findViewById(R.id.spinner_kind_datedelete1);
+        spinnerDate2 = findViewById(R.id.spinner_kind_datedelete2);
+        spinnerDate3 = findViewById(R.id.spinner_kind_datedelete3);
+        spinnerDate4 = findViewById(R.id.spinner_kind_datedelete4);
+        spinnerDate5 = findViewById(R.id.spinner_kind_datedelete5);
+        spinnerDate6 = findViewById(R.id.spinner_kind_datedelete6);
+
+
+
+
+
+//        Intent intent = getIntent();
+//        String[] output = intent.getStringExtra("name").split("\\s");
+//        editTextFirst.setText(output[0]);
+//        editTextLast.setText(output[1]);
+//        editTextAddrees.setText(intent.getStringExtra("dc"));
     }
 
     @Override

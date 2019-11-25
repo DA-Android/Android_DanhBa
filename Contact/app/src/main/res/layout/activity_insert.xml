@@ -85,11 +85,11 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/edtText_kind_phoneinsert1"
-
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:enabled="true"
@@ -145,7 +145,8 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/edtText_kind_phoneinsert2"
@@ -205,7 +206,8 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/edtText_kind_phoneinsert3"
@@ -265,7 +267,8 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/edtText_kind_phoneinsert4"
@@ -325,7 +328,8 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/edtText_kind_phoneinsert5"
@@ -385,7 +389,8 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/edtText_kind_phoneinsert6"
@@ -742,7 +747,8 @@
                     android:textSize="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints"></EditText>
+                    tools:ignore="MissingConstraints"
+                    android:inputType="date"></EditText>
 
                 <EditText
                     android:id="@+id/edtText_kind_dateinsert1"
@@ -802,7 +808,8 @@
                     android:textSize="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints"></EditText>
+                    tools:ignore="MissingConstraints"
+                    android:inputType="date"></EditText>
 
                 <EditText
                     android:id="@+id/edtText_kind_dateinsert2"
@@ -810,11 +817,11 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:enabled="true"
-                    android:inputType=""
                     android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert2"
                     app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert2"
-                    tools:ignore="MissingConstraints"></EditText>
+                    tools:ignore="MissingConstraints"
+                    ></EditText>
 
                 <ImageView
                     android:id="@+id/imgView_dateinsert2"
@@ -862,7 +869,8 @@
                     android:textSize="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints"></EditText>
+                    tools:ignore="MissingConstraints"
+                    android:inputType="date"></EditText>
 
                 <EditText
                     android:id="@+id/edtText_kind_dateinsert3"
@@ -870,7 +878,6 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:enabled="true"
-                    android:inputType=""
                     android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert3"
                     app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert3"
@@ -922,7 +929,8 @@
                     android:textSize="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints"></EditText>
+                    tools:ignore="MissingConstraints"
+                    android:inputType="date"></EditText>
 
                 <EditText
                     android:id="@+id/edtText_kind_dateinsert4"
@@ -930,7 +938,6 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:enabled="true"
-                    android:inputType=""
                     android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert4"
                     app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert4"
@@ -982,15 +989,14 @@
                     android:textSize="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints"></EditText>
+                    tools:ignore="MissingConstraints"
+                    android:inputType="date"></EditText>
 
                 <EditText
                     android:id="@+id/edtText_kind_dateinsert5"
-
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:enabled="true"
-                    android:inputType=""
                     android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert5"
                     app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert5"
@@ -1042,15 +1048,14 @@
                     android:textSize="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints"></EditText>
+                    tools:ignore="MissingConstraints"
+                    android:inputType="date"></EditText>
 
                 <EditText
                     android:id="@+id/edtText_kind_dateinsert6"
-
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:enabled="true"
-                    android:inputType=""
                     android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="@+id/edtText_dateinsert6"
                     app:layout_constraintTop_toBottomOf="@+id/edtText_dateinsert6"
@@ -1094,7 +1099,7 @@
         android:id="@+id/cardViewInsert"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-
+        android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -1107,13 +1112,13 @@
             android:weightSum="1">
 
             <ImageButton
-                android:id="@+id/btn_save"
+                android:id="@+id/btn_saveInsert"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginBottom="3dp"
                 android:background="@drawable/shape"
-                android:src="@drawable/save"
+                android:src="@drawable/ic_save"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

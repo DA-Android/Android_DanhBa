@@ -33,6 +33,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,10 @@ public class activity_insert extends AppCompatActivity {
     private GestureDetectorCompat mDetector;
     int max=100;
     int min=100;
+
+    EditText editTextFirstName;
+    EditText editTextLastName;
+
 
     ImageView imageViewAddress;
     EditText editTextAddrees;
@@ -97,6 +102,24 @@ public class activity_insert extends AppCompatActivity {
     EditText editTextInsertDate4;
     EditText editTextInsertDate5;
     EditText editTextInsertDate6;
+
+
+
+    Spinner spinnerPhone1;
+    Spinner spinnerPhone2;
+    Spinner spinnerPhone3;
+    Spinner spinnerPhone4;
+    Spinner spinnerPhone5;
+    Spinner spinnerPhone6;
+
+    Spinner spinnerDate1;
+    Spinner spinnerDate2;
+    Spinner spinnerDate3;
+    Spinner spinnerDate4;
+    Spinner spinnerDate5;
+    Spinner spinnerDate6;
+
+
 
 
 
@@ -525,6 +548,9 @@ public class activity_insert extends AppCompatActivity {
 
 
 
+        //load spinner
+        loadSpinner();
+
 
 
         img = findViewById(R.id.imageView);
@@ -532,7 +558,7 @@ public class activity_insert extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                insertToSQLite();
             }
         });
 
@@ -540,6 +566,61 @@ public class activity_insert extends AppCompatActivity {
 
 
     }
+    private void insertToSQLite() {
+        if(editTextFirstName.getText().length()<=0&& editTextLastName.getText().length()<=0
+                &&editTextInsertDate1.getText().length()<=0&&editTextInsertDate2.getText().length()<=0&&editTextInsertDate3.getText().length()<=0&&editTextInsertDate4.getText().length()<=0&&editTextInsertDate5.getText().length()<=0&&editTextInsertDate6.getText().length()<=0
+                &&editTextInsertPhone1.getText().length()<=0&&editTextInsertPhone2.getText().length()<=0&&editTextInsertPhone3.getText().length()<=0&&editTextInsertPhone4.getText().length()<=0&&editTextInsertPhone5.getText().length()<=0&&editTextInsertPhone6.getText().length()<=0
+                &&editTextAddrees.getText().length()<=0
+                &&editTextInsertEmail1.getText().length()<=0&&editTextInsertEmail2.getText().length()<=0&&editTextInsertEmail3.getText().length()<=0&&editTextInsertEmail4.getText().length()<=0&&editTextInsertEmail5.getText().length()<=0&&editTextInsertEmail6.getText().length()<=0)
+        {
+            onBackPressed();
+        }
+        else {
+            //thêm dữ liệu
+            SQLite sqLite=new SQLite(this,"contact_new.sqlite",null,1);
+
+            sqLite.Insertcontacts("R.drawable.hinh1",editTextFirstName.getText().toString(),editTextLastName.getText().toString(),editTextAddrees.getText().toString(),
+                editTextInsertPhone1.getText().toString(),spinnerPhone1.getSelectedItem().toString(),editTextInsertPhone2.getText().toString(),spinnerPhone2.getSelectedItem().toString(),editTextInsertPhone3.getText().toString(),spinnerPhone3.getSelectedItem().toString(),editTextInsertPhone4.getText().toString(),spinnerPhone4.getSelectedItem().toString(),editTextInsertPhone5.getText().toString(),spinnerPhone5.getSelectedItem().toString(),editTextInsertPhone6.getText().toString(),spinnerPhone6.getSelectedItem().toString(),
+                editTextInsertEmail1.getText().toString(),editTextInsertEmail2.getText().toString(),editTextInsertEmail3.getText().toString(),editTextInsertEmail4.getText().toString(),editTextInsertEmail5.getText().toString(),editTextInsertEmail6.getText().toString(),
+                editTextInsertDate1.getText().toString(),spinnerDate1.getSelectedItem().toString(),editTextInsertDate2.getText().toString(),spinnerDate2.getSelectedItem().toString(),editTextInsertDate3.getText().toString(),spinnerDate3.getSelectedItem().toString(),editTextInsertDate4.getText().toString(),spinnerDate4.getSelectedItem().toString(),editTextInsertDate5.getText().toString(),spinnerDate5.getSelectedItem().toString(),editTextInsertDate6.getText().toString(),spinnerDate6.getSelectedItem().toString());
+
+
+            onBackPressed();
+        }
+    }
+
+    private void loadSpinner() {
+        List<String> list = new ArrayList<>();
+        list.add("Mobile");
+        list.add("Home");
+        list.add("Company");
+        list.add("Custom");
+        ArrayAdapter<String> adapter = new ArrayAdapter(activity_insert.this,R.layout.support_simple_spinner_dropdown_item,list);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+        spinnerPhone1.setAdapter(adapter);
+        spinnerPhone2.setAdapter(adapter);
+        spinnerPhone3.setAdapter(adapter);
+        spinnerPhone4.setAdapter(adapter);
+        spinnerPhone5.setAdapter(adapter);
+        spinnerPhone6.setAdapter(adapter);
+
+
+        List<String> list1 = new ArrayList<>();
+        list1.add("Annyversary");
+        list1.add("Birthday");
+        list1.add("Bigday");
+        list1.add("Specialday");
+        list1.add("Other");
+        ArrayAdapter<String> adapter1 = new ArrayAdapter(activity_insert.this,R.layout.support_simple_spinner_dropdown_item,list1);
+        adapter1.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+        spinnerDate1.setAdapter(adapter1);
+        spinnerDate2.setAdapter(adapter1);
+        spinnerDate3.setAdapter(adapter1);
+        spinnerDate4.setAdapter(adapter1);
+        spinnerDate5.setAdapter(adapter1);
+        spinnerDate6.setAdapter(adapter1);
+    }
+
     //bat su kien menu
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -645,58 +726,69 @@ public class activity_insert extends AppCompatActivity {
 //        return super.onOptionsItemSelected(item);
 //    }
 
-    public void setWidget(){
-
-        btn_save = findViewById(R.id.btn_save);
-
-
-
-
-        constraintLayoutPhoneInsert1=findViewById(R.id.ConstraintlayoutPhoneInsert1);
-        constraintLayoutPhoneInsert2=findViewById(R.id.ConstraintlayoutPhoneInsert2);
-        constraintLayoutPhoneInsert3=findViewById(R.id.ConstraintlayoutPhoneInsert3);
-        constraintLayoutPhoneInsert4=findViewById(R.id.ConstraintlayoutPhoneInsert4);
-        constraintLayoutPhoneInsert5=findViewById(R.id.ConstraintlayoutPhoneInsert5);
-        constraintLayoutPhoneInsert6=findViewById(R.id.ConstraintlayoutPhoneInsert6);
-        editTextInsertPhone1= findViewById(R.id.edtText_phoneinsert1);
-        editTextInsertPhone2= findViewById(R.id.edtText_phoneinsert2);
-        editTextInsertPhone3= findViewById(R.id.edtText_phoneinsert3);
-        editTextInsertPhone4= findViewById(R.id.edtText_phoneinsert4);
-        editTextInsertPhone5= findViewById(R.id.edtText_phoneinsert5);
-        editTextInsertPhone6= findViewById(R.id.edtText_phoneinsert6);
-
-        constraintLayoutEmailInsert1=findViewById(R.id.ConstraintlayoutEmailInsert1);
-        constraintLayoutEmailInsert2=findViewById(R.id.ConstraintlayoutEmailInsert2);
-        constraintLayoutEmailInsert3=findViewById(R.id.ConstraintlayoutEmailInsert3);
-        constraintLayoutEmailInsert4=findViewById(R.id.ConstraintlayoutEmailInsert4);
-        constraintLayoutEmailInsert5=findViewById(R.id.ConstraintlayoutEmailInsert5);
-        constraintLayoutEmailInsert6=findViewById(R.id.ConstraintlayoutEmailInsert6);
-        editTextInsertEmail1= findViewById(R.id.edtText_emailinsert1);
-        editTextInsertEmail2= findViewById(R.id.edtText_emailinsert2);
-        editTextInsertEmail3= findViewById(R.id.edtText_emailinsert3);
-        editTextInsertEmail4= findViewById(R.id.edtText_emailinsert4);
-        editTextInsertEmail5= findViewById(R.id.edtText_emailinsert5);
-        editTextInsertEmail6= findViewById(R.id.edtText_emailinsert6);
-
-        imageViewAddress= (ImageView) findViewById(R.id.imgView_addressinsert);
-        textViewAddress= (TextView) findViewById(R.id.txtView_addressinsert);
-        editTextAddrees= (EditText) findViewById(R.id.edtText_addressinsert);
-
-        constraintLayoutDateInsert1=findViewById(R.id.ConstraintlayoutDateInsert1);
-        constraintLayoutDateInsert2=findViewById(R.id.ConstraintlayoutDateInsert2);
-        constraintLayoutDateInsert3=findViewById(R.id.ConstraintlayoutDateInsert3);
-        constraintLayoutDateInsert4=findViewById(R.id.ConstraintlayoutDateInsert4);
-        constraintLayoutDateInsert5=findViewById(R.id.ConstraintlayoutDateInsert5);
-        constraintLayoutDateInsert6=findViewById(R.id.ConstraintlayoutDateInsert6);
-        editTextInsertDate1= findViewById(R.id.edtText_dateinsert1);
-        editTextInsertDate2= findViewById(R.id.edtText_dateinsert2);
-        editTextInsertDate3= findViewById(R.id.edtText_dateinsert3);
-        editTextInsertDate4= findViewById(R.id.edtText_dateinsert4);
-        editTextInsertDate5= findViewById(R.id.edtText_dateinsert5);
-        editTextInsertDate6= findViewById(R.id.edtText_dateinsert6);
+    public void setWidget() {
+        editTextFirstName= findViewById(R.id.editTextFirst);
+        editTextLastName= findViewById(R.id.editTextLastName);
+        btn_save = findViewById(R.id.btn_saveInsert);
 
 
+        constraintLayoutPhoneInsert1 = findViewById(R.id.ConstraintlayoutPhoneInsert1);
+        constraintLayoutPhoneInsert2 = findViewById(R.id.ConstraintlayoutPhoneInsert2);
+        constraintLayoutPhoneInsert3 = findViewById(R.id.ConstraintlayoutPhoneInsert3);
+        constraintLayoutPhoneInsert4 = findViewById(R.id.ConstraintlayoutPhoneInsert4);
+        constraintLayoutPhoneInsert5 = findViewById(R.id.ConstraintlayoutPhoneInsert5);
+        constraintLayoutPhoneInsert6 = findViewById(R.id.ConstraintlayoutPhoneInsert6);
+        editTextInsertPhone1 = findViewById(R.id.edtText_phoneinsert1);
+        editTextInsertPhone2 = findViewById(R.id.edtText_phoneinsert2);
+        editTextInsertPhone3 = findViewById(R.id.edtText_phoneinsert3);
+        editTextInsertPhone4 = findViewById(R.id.edtText_phoneinsert4);
+        editTextInsertPhone5 = findViewById(R.id.edtText_phoneinsert5);
+        editTextInsertPhone6 = findViewById(R.id.edtText_phoneinsert6);
 
+        constraintLayoutEmailInsert1 = findViewById(R.id.ConstraintlayoutEmailInsert1);
+        constraintLayoutEmailInsert2 = findViewById(R.id.ConstraintlayoutEmailInsert2);
+        constraintLayoutEmailInsert3 = findViewById(R.id.ConstraintlayoutEmailInsert3);
+        constraintLayoutEmailInsert4 = findViewById(R.id.ConstraintlayoutEmailInsert4);
+        constraintLayoutEmailInsert5 = findViewById(R.id.ConstraintlayoutEmailInsert5);
+        constraintLayoutEmailInsert6 = findViewById(R.id.ConstraintlayoutEmailInsert6);
+        editTextInsertEmail1 = findViewById(R.id.edtText_emailinsert1);
+        editTextInsertEmail2 = findViewById(R.id.edtText_emailinsert2);
+        editTextInsertEmail3 = findViewById(R.id.edtText_emailinsert3);
+        editTextInsertEmail4 = findViewById(R.id.edtText_emailinsert4);
+        editTextInsertEmail5 = findViewById(R.id.edtText_emailinsert5);
+        editTextInsertEmail6 = findViewById(R.id.edtText_emailinsert6);
+
+        imageViewAddress = (ImageView) findViewById(R.id.imgView_addressinsert);
+        textViewAddress = (TextView) findViewById(R.id.txtView_addressinsert);
+        editTextAddrees = (EditText) findViewById(R.id.edtText_addressinsert);
+
+        constraintLayoutDateInsert1 = findViewById(R.id.ConstraintlayoutDateInsert1);
+        constraintLayoutDateInsert2 = findViewById(R.id.ConstraintlayoutDateInsert2);
+        constraintLayoutDateInsert3 = findViewById(R.id.ConstraintlayoutDateInsert3);
+        constraintLayoutDateInsert4 = findViewById(R.id.ConstraintlayoutDateInsert4);
+        constraintLayoutDateInsert5 = findViewById(R.id.ConstraintlayoutDateInsert5);
+        constraintLayoutDateInsert6 = findViewById(R.id.ConstraintlayoutDateInsert6);
+        editTextInsertDate1 = findViewById(R.id.edtText_dateinsert1);
+        editTextInsertDate2 = findViewById(R.id.edtText_dateinsert2);
+        editTextInsertDate3 = findViewById(R.id.edtText_dateinsert3);
+        editTextInsertDate4 = findViewById(R.id.edtText_dateinsert4);
+        editTextInsertDate5 = findViewById(R.id.edtText_dateinsert5);
+        editTextInsertDate6 = findViewById(R.id.edtText_dateinsert6);
+
+//spinner
+        spinnerPhone1 = findViewById(R.id.spinner_kind_phoneinsert1);
+        spinnerPhone2 = findViewById(R.id.spinner_kind_phoneinsert2);
+        spinnerPhone3 = findViewById(R.id.spinner_kind_phoneinsert3);
+        spinnerPhone4 = findViewById(R.id.spinner_kind_phoneinsert4);
+        spinnerPhone5 = findViewById(R.id.spinner_kind_phoneinsert5);
+        spinnerPhone6 = findViewById(R.id.spinner_kind_phoneinsert6);
+
+        spinnerDate1 = findViewById(R.id.spinner_kind_dateinsert1);
+        spinnerDate2 = findViewById(R.id.spinner_kind_dateinsert2);
+        spinnerDate3 = findViewById(R.id.spinner_kind_dateinsert3);
+        spinnerDate4 = findViewById(R.id.spinner_kind_dateinsert4);
+        spinnerDate5 = findViewById(R.id.spinner_kind_dateinsert5);
+        spinnerDate6 = findViewById(R.id.spinner_kind_dateinsert6);
     }
 
 

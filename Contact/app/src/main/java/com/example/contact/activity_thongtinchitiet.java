@@ -281,24 +281,27 @@ public class activity_thongtinchitiet extends AppCompatActivity {
         });
 
         btn_update =findViewById(R.id.update);
+        final String Fname=intent.getStringExtra("firstname");
+        final String Lname=intent.getStringExtra("lastname");
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(activity_thongtinchitiet.this,DeleteActivity.class);
                 intent.putExtra("id", s);
-                intent.putExtra("name", textViewname.getText().toString());
+                intent.putExtra("Fname",Fname);
+                intent.putExtra("Lname",Lname);
                 intent.putExtra("dc", textViewdc.getText().toString());
-                intent.putExtra("numberkind1", numberkind1.getText().toString());
+                intent.putExtra("numberkind1",getpositionofSpinnerPhone( numberkind1.getText().toString()));
                 intent.putExtra("numberphone1", sdt1.getText().toString());
-                intent.putExtra("numberkind2", numberkind2.getText().toString());
+                intent.putExtra("numberkind2",getpositionofSpinnerPhone( numberkind2.getText().toString()));
                 intent.putExtra("numberphone2", sdt2.getText().toString());
-                intent.putExtra("numberkind3", numberkind3.getText().toString());
+                intent.putExtra("numberkind3", getpositionofSpinnerPhone(numberkind3.getText().toString()));
                 intent.putExtra("numberphone3", sdt3.getText().toString());
-                intent.putExtra("numberkind4", numberkind4.getText().toString());
+                intent.putExtra("numberkind4", getpositionofSpinnerPhone(numberkind4.getText().toString()));
                 intent.putExtra("numberphone4", sdt4.getText().toString());
-                intent.putExtra("numberkind5", numberkind5.getText().toString());
+                intent.putExtra("numberkind5", getpositionofSpinnerPhone(numberkind5.getText().toString()));
                 intent.putExtra("numberphone5", sdt5.getText().toString());
-                intent.putExtra("numberkind6", numberkind6.getText().toString());
+                intent.putExtra("numberkind6",getpositionofSpinnerPhone( numberkind6.getText().toString()));
                 intent.putExtra("numberphone6", sdt6.getText().toString());
                 intent.putExtra("Mail1", mail1.getText().toString());
                 intent.putExtra("Mail2", mail2.getText().toString());
@@ -306,17 +309,17 @@ public class activity_thongtinchitiet extends AppCompatActivity {
                 intent.putExtra("Mail4", mail4.getText().toString());
                 intent.putExtra("Mail5", mail5.getText().toString());
                 intent.putExtra("Mail6", mail6.getText().toString());
-                intent.putExtra("datekind1", datekind1.getText().toString());
+                intent.putExtra("datekind1",getpositionofSpinnerDate( datekind1.getText().toString()));
                 intent.putExtra("date1", date1.getText().toString());
-                intent.putExtra("datekind2", datekind2.getText().toString());
+                intent.putExtra("datekind2", getpositionofSpinnerDate( datekind2.getText().toString()));
                 intent.putExtra("date2", date2.getText().toString());
-                intent.putExtra("datekind3", datekind3.getText().toString());
+                intent.putExtra("datekind3", getpositionofSpinnerDate( datekind3.getText().toString()));
                 intent.putExtra("date3", date3.getText().toString());
-                intent.putExtra("datekind4", datekind4.getText().toString());
+                intent.putExtra("datekind4", getpositionofSpinnerDate( datekind4.getText().toString()));
                 intent.putExtra("date4", date4.getText().toString());
-                intent.putExtra("datekind5", datekind5.getText().toString());
+                intent.putExtra("datekind5",getpositionofSpinnerDate(  datekind5.getText().toString()));
                 intent.putExtra("date5", date5.getText().toString());
-                intent.putExtra("datekind6", datekind6.getText().toString());
+                intent.putExtra("datekind6", getpositionofSpinnerDate( datekind6.getText().toString()));
                 intent.putExtra("date6", date6.getText().toString());
                 startActivity(intent);
             }
@@ -536,5 +539,43 @@ public class activity_thongtinchitiet extends AppCompatActivity {
             }
             return super.onFling(event1,event2,velocityX,velocityY);
         }
+    }
+
+    public int getpositionofSpinnerPhone(String spinner)
+    {
+//        list.add("Mobile");
+//        list.add("Home");
+//        list.add("Company");
+//        list.add("Custom");
+        if(spinner=="Annyversary")
+            return 0;
+        if(spinner=="Home")
+            return 1;
+        if(spinner=="Company")
+            return 2;
+        if(spinner=="Custom")
+            return 3;
+        else
+            return 0;
+    }
+    public int getpositionofSpinnerDate(String spinner)
+    {
+//        list1.add("Annyversary");
+//        list1.add("Birthday");
+//        list1.add("Bigday");
+//        list1.add("Specialday");
+//        list1.add("Other");
+        if(spinner=="Annyversary")
+            return 0;
+        if(spinner=="Birthday")
+            return 1;
+        if(spinner=="Bigday")
+            return 2;
+        if(spinner=="Specialday")
+            return 3;
+        if(spinner=="Other")
+            return 4;
+        else
+            return 0;
     }
 }

@@ -44,6 +44,7 @@ public class CustomListAdapter extends BaseAdapter{
     public long getItemId(int position) {
         return position;
     }
+    private String orther="#";
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null)
@@ -62,8 +63,164 @@ public class CustomListAdapter extends BaseAdapter{
                 holder = (ViewHolder) convertView.getTag();
             }
         people p=listData.get(position);
-        holder.chucaitendau.setText(p.getFIRST_NAME().substring(0,1));
-        holder.ten.setText(p.getFIRST_NAME()+" "+p.getLAST_NAME());
+        if(p.getFIRST_NAME().length()>0 &&p.getLAST_NAME().length()>0) {
+            holder.chucaitendau.setText(p.getFIRST_NAME().substring(0, 1));
+            holder.ten.setText(p.getFIRST_NAME()+" "+p.getLAST_NAME());
+        }
+        else
+        {
+            if(p.getFIRST_NAME().length()>0 ) {
+                holder.chucaitendau.setText(p.getFIRST_NAME().substring(0, 1));
+                holder.ten.setText(p.getFIRST_NAME());
+            }
+            else {
+                if(p.getLAST_NAME().length()>0 ) {
+                    holder.chucaitendau.setText(p.getLAST_NAME().substring(0, 1));
+                    holder.ten.setText( p.getLAST_NAME());
+                }
+                else
+                {
+                    if(p.getNUMBERS1().length()>0 ) {
+                        holder.chucaitendau.setText(orther);
+                        holder.ten.setText(p.getNUMBERS1());
+                    }
+                    else
+                    {
+                        if(p.getNUMBERS2().length()>0 ) {
+                            holder.chucaitendau.setText(orther);
+                            holder.ten.setText(p.getNUMBERS2());
+                        }
+                        else
+                        {
+                            if(p.getNUMBERS3().length()>0 ) {
+                                holder.chucaitendau.setText(orther);
+                                holder.ten.setText(p.getNUMBERS3());
+                            }
+                            else
+                            {
+                                if(p.getNUMBERS4().length()>0 ) {
+                                    holder.chucaitendau.setText(orther);
+                                    holder.ten.setText(p.getNUMBERS4());
+                                }
+                                else
+                                {
+                                    if(p.getNUMBERS5().length()>0 ) {
+                                        holder.chucaitendau.setText(orther);
+                                        holder.ten.setText(p.getNUMBERS5());
+                                    }
+                                    else
+                                    {
+                                        if(p.getNUMBERS6().length()>0 ) {
+                                            holder.chucaitendau.setText(orther);
+                                            holder.ten.setText(p.getNUMBERS6());
+                                        }
+                                        else
+                                        {
+                                            if(p.getADDRESS().length()>0 ) {
+                                                holder.chucaitendau.setText(orther);
+                                                holder.ten.setText(p.getADDRESS());
+                                            }
+                                            else
+                                            {
+                                                if(p.getMAIL1().length()>0 ) {
+                                                    holder.chucaitendau.setText(orther);
+                                                    holder.ten.setText(p.getMAIL1());
+                                                }
+                                                else
+                                                {
+                                                    if(p.getMAIL2().length()>0 ) {
+                                                        holder.chucaitendau.setText(orther);
+                                                        holder.ten.setText(p.getMAIL2());
+                                                    }
+                                                    else
+                                                    {
+                                                        if(p.getMAIL3().length()>0 ) {
+                                                            holder.chucaitendau.setText(orther);
+                                                            holder.ten.setText(p.getMAIL3());
+                                                        }
+                                                        else
+                                                        {
+                                                            if(p.getMAIL4().length()>0 ) {
+                                                                holder.chucaitendau.setText(orther);
+                                                                holder.ten.setText(p.getMAIL4());
+                                                            }
+                                                            else
+                                                            {
+                                                                if(p.getMAIL5().length()>0 ) {
+                                                                    holder.chucaitendau.setText(orther);
+                                                                    holder.ten.setText(p.getMAIL5());
+                                                                }
+                                                                else
+                                                                {
+                                                                    if(p.getMAIL6().length()>0 ) {
+                                                                        holder.chucaitendau.setText(orther);
+                                                                        holder.ten.setText(p.getMAIL6());
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if(p.getDATETIME1().length()>0 ) {
+                                                                            holder.chucaitendau.setText(orther);
+                                                                            holder.ten.setText(p.getDATETIME1());
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            if(p.getDATETIME2().length()>0 ) {
+                                                                                holder.chucaitendau.setText(orther);
+                                                                                holder.ten.setText(p.getDATETIME2());
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                if(p.getDATETIME3().length()>0 ) {
+                                                                                    holder.chucaitendau.setText(orther);
+                                                                                    holder.ten.setText(p.getDATETIME3());
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    if(p.getDATETIME4().length()>0 ) {
+                                                                                        holder.chucaitendau.setText(orther);
+                                                                                        holder.ten.setText(p.getDATETIME4());
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        if(p.getDATETIME5().length()>0 ) {
+                                                                                            holder.chucaitendau.setText(orther);
+                                                                                            holder.ten.setText(p.getDATETIME5());
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            if(p.getDATETIME6().length()>0 ) {
+                                                                                                holder.chucaitendau.setText(orther);
+                                                                                                holder.ten.setText(p.getDATETIME6());
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                holder.chucaitendau.setText(orther);
+                                                                                                holder.ten.setText("");
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+
         //byte[] hinhanh=p.getHINH();
         //Bitmap bitmap=BitmapFactory.decodeByteArray(hinhanh,0,hinhanh.length);
         //holder.imghinh.setImageBitmap(bitmap);
