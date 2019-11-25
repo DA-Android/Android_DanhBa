@@ -547,7 +547,11 @@ public class DeleteActivity extends AppCompatActivity {
         btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String s="2";
                 sqLite.Deletecontacts(ID);
+                Intent intent=new Intent(DeleteActivity.this,MainActivity.class);
+                intent.putExtra("id", s);
+                startActivity(intent);
                 finish();
             }
         });
@@ -557,6 +561,7 @@ public class DeleteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateToSQLite();
+
                 finish();
             }
         });
@@ -584,11 +589,11 @@ public class DeleteActivity extends AppCompatActivity {
         editTextDeletePhone5.setText(intent.getStringExtra("numberphone5"));
         editTextDeletePhone6.setText(intent.getStringExtra("numberphone6"));
         editTextDeleteEmail1.setText(intent.getStringExtra("Mail1"));
-        editTextDeleteEmail1.setText(intent.getStringExtra("Mail2"));
-        editTextDeleteEmail1.setText(intent.getStringExtra("Mail3"));
-        editTextDeleteEmail1.setText(intent.getStringExtra("Mail4"));
-        editTextDeleteEmail1.setText(intent.getStringExtra("Mail5"));
-        editTextDeleteEmail1.setText(intent.getStringExtra("Mail6"));
+        editTextDeleteEmail2.setText(intent.getStringExtra("Mail2"));
+        editTextDeleteEmail3.setText(intent.getStringExtra("Mail3"));
+        editTextDeleteEmail4.setText(intent.getStringExtra("Mail4"));
+        editTextDeleteEmail5.setText(intent.getStringExtra("Mail5"));
+        editTextDeleteEmail6.setText(intent.getStringExtra("Mail6"));
         spinnerDate1.setSelection(intent.getIntExtra("datekind1",1));
         spinnerDate2.setSelection(intent.getIntExtra("datekind2",1));
         spinnerDate3.setSelection(intent.getIntExtra("datekind3",1));
@@ -596,11 +601,11 @@ public class DeleteActivity extends AppCompatActivity {
         spinnerDate5.setSelection(intent.getIntExtra("datekind5",1));
         spinnerDate6.setSelection(intent.getIntExtra("datekind6",1));
         editTextDeleteDate1.setText(intent.getStringExtra("date1"));
-        editTextDeleteDate1.setText(intent.getStringExtra("date2"));
-        editTextDeleteDate1.setText(intent.getStringExtra("date3"));
-        editTextDeleteDate1.setText(intent.getStringExtra("date4"));
-        editTextDeleteDate1.setText(intent.getStringExtra("date5"));
-        editTextDeleteDate1.setText(intent.getStringExtra("date6"));
+        editTextDeleteDate2.setText(intent.getStringExtra("date2"));
+        editTextDeleteDate3.setText(intent.getStringExtra("date3"));
+        editTextDeleteDate4.setText(intent.getStringExtra("date4"));
+        editTextDeleteDate5.setText(intent.getStringExtra("date5"));
+        editTextDeleteDate6.setText(intent.getStringExtra("date6"));
 
     }
 

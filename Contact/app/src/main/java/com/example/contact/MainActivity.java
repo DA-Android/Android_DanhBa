@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         btn_them = findViewById(R.id.them);
         listView =(ListView) findViewById(R.id.danhsach);
-        arrayList=new ArrayList<>();
+        arrayList=new ArrayList<people>();
         SQLite sqLite;
         sqLite=new SQLite(this,"contact_new.sqlite",null,1);
         sqLite.QueryData("CREATE TABLE IF NOT EXISTS PEOPLE(IDCONTACTS INTEGER PRIMARY KEY AUTOINCREMENT, HINH BLOB, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), ADDRESS NVARCHAR(100), " +
@@ -155,10 +155,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             );
 
         }
-
         Collections.sort(arrayList);
-        adapter=new CustomListAdapter(this, R.layout.listitem, arrayList);
+        adapter = new CustomListAdapter(this, R.layout.listitem, arrayList);
         listView.setAdapter(adapter);
+
+
+
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(ID INTEGER PRIMARY KEY AUTOINCREMENT, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), COMPANY NVARCHAR(100) )");
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS PHONENUMBER(IDNUMBER INTERGER PRIMARY KEY, NUMBERS VNARCHAR(10), NUMBERKIND NVARCHAR(10), IDCONTACTSNUMBER INTEGER REFERENCES CONTACTS(ID) )");
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS MAIL(IDMAIL INTEGER PRIMARY KEY AUTOINCREMENT, MAIL VNARCHAR(100), IDCONTACTSMAIL INTEGER REFERENCES CONTACTS(ID) )");
