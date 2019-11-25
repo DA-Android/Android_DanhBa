@@ -94,7 +94,7 @@
                 android:inputType="number"/>
             <EditText
                 android:enabled="true"
-
+                android:inputType=""
                 android:id="@+id/edtText_kind_phonedelete1"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"

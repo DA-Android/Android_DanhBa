@@ -679,7 +679,6 @@ public class DeleteActivity extends AppCompatActivity {
 
 
             finish();
-            startActivity(getIntent());
         }
     }
 
