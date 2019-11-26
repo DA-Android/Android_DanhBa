@@ -558,12 +558,7 @@ public class activity_insert extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String s="2";
                 insertToSQLite();
-                Intent intent=new Intent(activity_insert.this,MainActivity.class);
-                intent.putExtra("id", s);
-                startActivity(intent);
-                finish();
             }
         });
 
