@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -27,6 +28,7 @@ import com.example.contact.model.people;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 import static android.widget.Toast.LENGTH_SHORT;
@@ -543,39 +545,29 @@ public class activity_thongtinchitiet extends AppCompatActivity {
 
     public int getpositionofSpinnerPhone(String spinner)
     {
-//        list.add("Mobile");
-//        list.add("Home");
-//        list.add("Company");
-//        list.add("Custom");
-        if(spinner=="Annyversary")
-            return 0;
-        if(spinner=="Home")
-            return 1;
-        if(spinner=="Company")
-            return 2;
-        if(spinner=="Custom")
-            return 3;
-        else
-            return 0;
+        ArrayAdapter<String> adapter;
+        List<String> list = new ArrayList<>();
+        list.add("Mobile");
+        list.add("Home");
+        list.add("Company");
+        list.add("Custom");
+        adapter = new ArrayAdapter(activity_thongtinchitiet.this,R.layout.support_simple_spinner_dropdown_item,list);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+
+        return adapter.getPosition(spinner);
     }
     public int getpositionofSpinnerDate(String spinner)
     {
-//        list1.add("Annyversary");
-//        list1.add("Birthday");
-//        list1.add("Bigday");
-//        list1.add("Specialday");
-//        list1.add("Other");
-        if(spinner=="Annyversary")
-            return 0;
-        if(spinner=="Birthday")
-            return 1;
-        if(spinner=="Bigday")
-            return 2;
-        if(spinner=="Specialday")
-            return 3;
-        if(spinner=="Other")
-            return 4;
-        else
-            return 0;
+        ArrayAdapter<String> adapter1;
+        List<String> list1 = new ArrayList<>();
+        list1.add("Annyversary");
+        list1.add("Birthday");
+        list1.add("Bigday");
+        list1.add("Specialday");
+        list1.add("Other");
+        adapter1 = new ArrayAdapter(activity_thongtinchitiet.this,R.layout.support_simple_spinner_dropdown_item,list1);
+        adapter1.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+
+       return adapter1.getPosition(spinner);
     }
 }
