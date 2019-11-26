@@ -537,6 +537,7 @@ public class DeleteActivity extends AppCompatActivity {
             }
         });
 
+        loadSpinner();
         //load du lieu tu thong tin chi tiet--------------------------------------------------------
 
         loadData();
@@ -560,12 +561,47 @@ public class DeleteActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String s="2";
                 updateToSQLite();
+                Intent intent=new Intent(DeleteActivity.this,MainActivity.class);
+                intent.putExtra("id", s);
+                startActivity(intent);
                 finish();
             }
         });
+    }
 
-    
+    private void loadSpinner() {
+            List<String> list = new ArrayList<>();
+            list.add("Mobile");
+            list.add("Home");
+            list.add("Company");
+            list.add("Custom");
+            ArrayAdapter<String> adapter = new ArrayAdapter(DeleteActivity.this,R.layout.support_simple_spinner_dropdown_item,list);
+            adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+            spinnerPhone1.setAdapter(adapter);
+            spinnerPhone2.setAdapter(adapter);
+            spinnerPhone3.setAdapter(adapter);
+            spinnerPhone4.setAdapter(adapter);
+            spinnerPhone5.setAdapter(adapter);
+            spinnerPhone6.setAdapter(adapter);
+
+
+            List<String> list1 = new ArrayList<>();
+            list1.add("Annyversary");
+            list1.add("Birthday");
+            list1.add("Bigday");
+            list1.add("Specialday");
+            list1.add("Other");
+            ArrayAdapter<String> adapter1 = new ArrayAdapter(DeleteActivity.this,R.layout.support_simple_spinner_dropdown_item,list1);
+            adapter1.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+            spinnerDate1.setAdapter(adapter1);
+            spinnerDate2.setAdapter(adapter1);
+            spinnerDate3.setAdapter(adapter1);
+            spinnerDate4.setAdapter(adapter1);
+            spinnerDate5.setAdapter(adapter1);
+            spinnerDate6.setAdapter(adapter1);
+
     }
 
     private void loadData() {
@@ -626,22 +662,22 @@ public class DeleteActivity extends AppCompatActivity {
             String spinPhone4= "";
             String spinPhone5= "";
             String spinPhone6= "";
-            if(spinnerPhone1.getSelectedItem()!=null&&editTextDeletePhone1.getText().length()>0) {
+            if(editTextDeletePhone1.getText().length()>0) {
                 spinPhone1 = spinnerPhone1.getSelectedItem().toString();
             }
-            if(spinnerPhone2.getSelectedItem()!=null&&editTextDeletePhone2.getText().length()>0) {
+            if(editTextDeletePhone2.getText().length()>0) {
                 spinPhone2 = spinnerPhone2.getSelectedItem().toString();
             }
-            if(spinnerPhone3.getSelectedItem()!=null&&editTextDeletePhone3.getText().length()>0) {
+            if(editTextDeletePhone3.getText().length()>0) {
                 spinPhone3 = spinnerPhone3.getSelectedItem().toString();
             }
-            if(spinnerPhone4.getSelectedItem()!=null&&editTextDeletePhone4.getText().length()>0) {
+            if(editTextDeletePhone4.getText().length()>0) {
                 spinPhone4 = spinnerPhone4.getSelectedItem().toString();
             }
-            if(spinnerPhone5.getSelectedItem()!=null&&editTextDeletePhone5.getText().length()>0) {
+            if(editTextDeletePhone5.getText().length()>0) {
                 spinPhone5 = spinnerPhone5.getSelectedItem().toString();
             }
-            if(spinnerPhone6.getSelectedItem()!=null&&editTextDeletePhone6.getText().length()>0) {
+            if(editTextDeletePhone6.getText().length()>0) {
                 spinPhone6 = spinnerPhone6.getSelectedItem().toString();
             }
 
@@ -651,22 +687,22 @@ public class DeleteActivity extends AppCompatActivity {
             String spinDate4= "";
             String spinDate5= "";
             String spinDate6= "";
-            if(spinnerDate1.getSelectedItem()!=null&&editTextDeleteDate1.getText().length()>0) {
+            if(editTextDeleteDate1.getText().length()>0) {
                 spinDate1 = spinnerDate1.getSelectedItem().toString();
             }
-            if(spinnerDate2.getSelectedItem()!=null&&editTextDeleteDate2.getText().length()>0) {
+            if(editTextDeleteDate2.getText().length()>0) {
                 spinDate2 = spinnerDate2.getSelectedItem().toString();
             }
-            if(spinnerDate3.getSelectedItem()!=null&&editTextDeleteDate3.getText().length()>0) {
+            if(editTextDeleteDate3.getText().length()>0) {
                 spinDate3 = spinnerDate3.getSelectedItem().toString();
             }
-            if(spinnerDate4.getSelectedItem()!=null&&editTextDeleteDate4.getText().length()>0) {
+            if(editTextDeleteDate4.getText().length()>0) {
                 spinDate4 = spinnerDate4.getSelectedItem().toString();
             }
-            if(spinnerDate5.getSelectedItem()!=null&&editTextDeleteDate5.getText().length()>0) {
+            if(editTextDeleteDate5.getText().length()>0) {
                 spinDate5 = spinnerDate5.getSelectedItem().toString();
             }
-            if(spinnerDate6.getSelectedItem()!=null&&editTextDeleteDate6.getText().length()>0) {
+            if(editTextDeleteDate6.getText().length()>0) {
                 spinDate6 = spinnerDate6.getSelectedItem().toString();
             }
 
@@ -676,8 +712,6 @@ public class DeleteActivity extends AppCompatActivity {
                     editTextDeleteEmail1.getText().toString(),editTextDeleteEmail2.getText().toString(),editTextDeleteEmail3.getText().toString(),editTextDeleteEmail4.getText().toString(),editTextDeleteEmail5.getText().toString(),editTextDeleteEmail6.getText().toString(),
                     editTextDeleteDate1.getText().toString(),spinDate1,editTextDeleteDate2.getText().toString(),spinDate2,editTextDeleteDate3.getText().toString(),spinDate3,editTextDeleteDate4.getText().toString(),spinDate4,editTextDeleteDate5.getText().toString(),spinDate5,editTextDeleteDate6.getText().toString(),spinDate6);
 
-
-            finish();
         }
     }
 
@@ -751,6 +785,7 @@ public class DeleteActivity extends AppCompatActivity {
         constraintLayoutDateDelete4=findViewById(R.id.ConstraintlayoutDateDelete4);
         constraintLayoutDateDelete5=findViewById(R.id.ConstraintlayoutDateDelete5);
         constraintLayoutDateDelete6=findViewById(R.id.ConstraintlayoutDateDelete6);
+
         editTextDeleteDate1= findViewById(R.id.edtText_datedelete1);
         editTextDeleteDate2= findViewById(R.id.edtText_datedelete2);
         editTextDeleteDate3= findViewById(R.id.edtText_datedelete3);
