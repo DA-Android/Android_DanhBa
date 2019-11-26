@@ -59,29 +59,24 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/colorPrimaryDark"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NAME"
+            android:textSize="20dp"
+            android:textColor="#ffff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PHONE"
+            android:textSize="20dp"
+            android:textColor="#ffff"/>
 
-        <TextView
-            android:id="@+id/txtviewmycardName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="#ffff"
-            android:textSize="26dp"
-            android:text="name"
-            android:layout_marginLeft="25dp"
-            />
-        <TextView
-            android:id="@+id/txtviewmycardPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="#ffff"
-            android:textSize="22dp"
-            android:text="phone"
-            android:layout_marginLeft="25dp"
-            />
+<!--        <ListView-->
+<!--            android:id="@+id/mycard"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
     </LinearLayout>
 
     <TableLayout

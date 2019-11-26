@@ -149,6 +149,59 @@ public class SQLite extends SQLiteOpenHelper {
         sqLiteStatement.bindString(34,DATEKIND6);
         sqLiteStatement.executeInsert();
     }
+    void Insertmycard(String hinh, String FIRST_NAME, String LAST_NAME, String ADDRESS,
+                        String NUMBERS1, String NUMBERKIND1, String NUMBERS2, String NUMBERKIND2, String NUMBERS3, String NUMBERKIND3, String NUMBERS4, String NUMBERKIND4, String NUMBERS5, String NUMBERKIND5, String NUMBERS6, String NUMBERKIND6,
+                        String MAIL1, String MAIL2, String MAIL3, String MAIL4, String MAIL5, String MAIL6,
+                        String DATETIME1, String DATEKIND1, String DATETIME2, String DATEKIND2, String DATETIME3, String DATEKIND3, String DATETIME4, String DATEKIND4, String DATETIME5, String DATEKIND5, String DATETIME6, String DATEKIND6)
+    {
+        //chuyển hình từ Imageview =>byte[]
+//        BitmapDrawable drawable= (BitmapDrawable) img.getDrawable();
+//        Bitmap bitmap =drawable.getBitmap();
+//        ByteArrayOutputStream byteArray =new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG,60,byteArray);
+//        byte[] hinhanh=byteArray.toByteArray();
+        //-----------------------------------------------------------------------------
+
+        db=getWritableDatabase();
+        String sql="Insert into MYCARD values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        SQLiteStatement sqLiteStatement=db.compileStatement(sql);
+        sqLiteStatement.clearBindings();
+        sqLiteStatement.bindString(1,hinh);
+        sqLiteStatement.bindString(2,FIRST_NAME);
+        sqLiteStatement.bindString(3,LAST_NAME);
+        sqLiteStatement.bindString(4,ADDRESS);
+        sqLiteStatement.bindString(5,NUMBERS1);
+        sqLiteStatement.bindString(6,NUMBERKIND1);
+        sqLiteStatement.bindString(7,NUMBERS2);
+        sqLiteStatement.bindString(8,NUMBERKIND2);
+        sqLiteStatement.bindString(9,NUMBERS3);
+        sqLiteStatement.bindString(10,NUMBERKIND3);
+        sqLiteStatement.bindString(11,NUMBERS4);
+        sqLiteStatement.bindString(12,NUMBERKIND4);
+        sqLiteStatement.bindString(13,NUMBERS5);
+        sqLiteStatement.bindString(14,NUMBERKIND5);
+        sqLiteStatement.bindString(15,NUMBERS6);
+        sqLiteStatement.bindString(16,NUMBERKIND6);
+        sqLiteStatement.bindString(17,MAIL1);
+        sqLiteStatement.bindString(18,MAIL2);
+        sqLiteStatement.bindString(19,MAIL3);
+        sqLiteStatement.bindString(20,MAIL4);
+        sqLiteStatement.bindString(21,MAIL5);
+        sqLiteStatement.bindString(22,MAIL6);
+        sqLiteStatement.bindString(23,DATETIME1);
+        sqLiteStatement.bindString(24,DATEKIND1);
+        sqLiteStatement.bindString(25,DATETIME2);
+        sqLiteStatement.bindString(26,DATEKIND2);
+        sqLiteStatement.bindString(27,DATETIME3);
+        sqLiteStatement.bindString(28,DATEKIND3);
+        sqLiteStatement.bindString(29,DATETIME4);
+        sqLiteStatement.bindString(30,DATEKIND4);
+        sqLiteStatement.bindString(31,DATETIME5);
+        sqLiteStatement.bindString(32,DATEKIND5);
+        sqLiteStatement.bindString(33,DATETIME6);
+        sqLiteStatement.bindString(34,DATEKIND6);
+        sqLiteStatement.executeInsert();
+    }
 //    void Insertemail( String MAIL, int IDCONTACTSMAIL)
 //    {
 //        //chuyển hình từ Imageview =>byte[]

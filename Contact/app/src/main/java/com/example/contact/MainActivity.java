@@ -18,6 +18,7 @@ import java.util.List;
 import android.widget.ListView;
 
 import com.example.contact.model.CustomListAdapter;
+import com.example.contact.model.Custommycard;
 import com.example.contact.model.listitem;
 import com.example.contact.model.people;
 
@@ -38,10 +39,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private ImageButton btn1;
     //private Button btn1;
     private ImageButton btn_them;
-    ListView listView;
+    ListView listView,listView1;
     ArrayList<people> arrayList;
+    ArrayList<people> arrayListmycard;
     ArrayList<people> arrayListcopy;
     CustomListAdapter adapter;
+    Custommycard adaptermycard;
     SQLite sqLite;
     SearchView editsearch;
 
@@ -54,13 +57,20 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         btn_them = findViewById(R.id.them);
         listView =(ListView) findViewById(R.id.danhsach);
+        listView1=findViewById(R.id.mycard);
         arrayList=new ArrayList<people>();
+        arrayListmycard=new ArrayList<people>();
         SQLite sqLite;
-        sqLite=new SQLite(this,"contact_new.sqlite",null,1);
+        sqLite=new SQLite(this,"contact_new.sqlite",null,2);
         sqLite.QueryData("CREATE TABLE IF NOT EXISTS PEOPLE(IDCONTACTS INTEGER PRIMARY KEY AUTOINCREMENT, HINH BLOB, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), ADDRESS NVARCHAR(100), " +
                 "NUMBERS1 NVNARCHAR(13), NUMBERKIND1 NVARCHAR(100), NUMBERS2 NVNARCHAR(13), NUMBERKIND2 NVARCHAR(100), NUMBERS3 NVNARCHAR(13), NUMBERKIND3 NVARCHAR(100), NUMBERS4 NVNARCHAR(13), NUMBERKIND4 NVARCHAR(100), NUMBERS5 NVNARCHAR(13), NUMBERKIND5 NVARCHAR(100), NUMBERS6 NVNARCHAR(13), NUMBERKIND6 NVARCHAR(100), " +
                 "MAIL1 NVNARCHAR(100), MAIL2 NVNARCHAR(100), MAIL3 NVNARCHAR(100), MAIL4 NVNARCHAR(100), MAIL5 NVNARCHAR(100), MAIL6 NVNARCHAR(100), " +
                 "DATETIME1 DATE(100), DATEKIND1 NVARCHAR(100), DATETIME2 DATE(100), DATEKIND2 NVARCHAR(100), DATETIME3 DATE(100), DATEKIND3 NVARCHAR(100), DATETIME4 DATE(100), DATEKIND4 NVARCHAR(100), DATETIME5 DATE(100), DATEKIND5 NVARCHAR(100), DATETIME6 DATE(100), DATEKIND6 NVARCHAR(100))");
+
+//        sqLite.QueryData("CREATE TABLE IF NOT EXISTS MYCARD(IDCONTACTS INTEGER PRIMARY KEY AUTOINCREMENT, HINH BLOB, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), ADDRESS NVARCHAR(100), " +
+//                "NUMBERS1 NVNARCHAR(13), NUMBERKIND1 NVARCHAR(100), NUMBERS2 NVNARCHAR(13), NUMBERKIND2 NVARCHAR(100), NUMBERS3 NVNARCHAR(13), NUMBERKIND3 NVARCHAR(100), NUMBERS4 NVNARCHAR(13), NUMBERKIND4 NVARCHAR(100), NUMBERS5 NVNARCHAR(13), NUMBERKIND5 NVARCHAR(100), NUMBERS6 NVNARCHAR(13), NUMBERKIND6 NVARCHAR(100), " +
+//                "MAIL1 NVNARCHAR(100), MAIL2 NVNARCHAR(100), MAIL3 NVNARCHAR(100), MAIL4 NVNARCHAR(100), MAIL5 NVNARCHAR(100), MAIL6 NVNARCHAR(100), " +
+//                "DATETIME1 DATE(100), DATEKIND1 NVARCHAR(100), DATETIME2 DATE(100), DATEKIND2 NVARCHAR(100), DATETIME3 DATE(100), DATEKIND3 NVARCHAR(100), DATETIME4 DATE(100), DATEKIND4 NVARCHAR(100), DATETIME5 DATE(100), DATEKIND5 NVARCHAR(100), DATETIME6 DATE(100), DATEKIND6 NVARCHAR(100))");
        // sqLite.QueryData("CREATE TABLE IF NOT EXISTS PHONENUMBER(IDNUMBER INTEGER PRIMARY KEY AUTOINCREMENT, NUMBERS NVNARCHAR(10), NUMBERKIND NVARCHAR(10), IDCONTACTSNUMBER INTEGER, FOREIGN KEY(IDCONTACTSNUMBER) REFERENCES PEOPLE(IDCONTACTS) )");
        // sqLite.QueryData("CREATE TABLE IF NOT EXISTS MAIL(IDMAIL INTEGER PRIMARY KEY AUTOINCREMENT, MAIL NVNARCHAR(100), IDCONTACTSMAIL INTEGER, FOREIGN KEY(IDCONTACTSMAIL) REFERENCES PEOPLE(IDCONTACTS) )");
        // sqLite.QueryData("CREATE TABLE IF NOT EXISTS DATE(IDDATE INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME DATE(100), DATEKIND NVARCHAR(10), IDCONTACTSDATE INTEGER, FOREIGN KEY(IDCONTACTSDATE) REFERENCES PEOPLE(IDCONTACTS) )");
@@ -152,13 +162,59 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     cursor.getString(34)
                     )
             );
-
         }
         Collections.sort(arrayList);
         adapter = new CustomListAdapter(this, R.layout.listitem, arrayList);
         listView.setAdapter(adapter);
 
-
+//        sqLite.Insertmycard("R.drawable.hinh1","Hoan","Phùng","thehoc",
+//                "0398704477","Phone","0869871185","Home","","","","","","","","",
+//                "@hufi","","","","","",
+//                "14/07/1998","sinhnhat","","","","","","","","","","");
+//        Cursor cursor1= sqLite.GetData("SELECT * FROM MYCARD");
+//        while (cursor1.moveToNext()){
+//            arrayListmycard.add(new people(cursor.getInt(0),
+//                            cursor.getBlob(1),
+//                            cursor.getString(2),
+//                            cursor.getString(3),
+//                            cursor.getString(4),
+//                            cursor.getString(5),
+//                            cursor.getString(6),
+//                            cursor.getString(7),
+//                            cursor.getString(8),
+//                            cursor.getString(9),
+//                            cursor.getString(10),
+//                            cursor.getString(11),
+//                            cursor.getString(12),
+//                            cursor.getString(13),
+//                            cursor.getString(14),
+//                            cursor.getString(15),
+//                            cursor.getString(16),
+//                            cursor.getString(17),
+//                            cursor.getString(18),
+//                            cursor.getString(19),
+//                            cursor.getString(20),
+//                            cursor.getString(21),
+//                            cursor.getString(22),
+//                            cursor.getString(23),
+//                            cursor.getString(24),
+//                            cursor.getString(25),
+//                            cursor.getString(26),
+//                            cursor.getString(27),
+//                            cursor.getString(28),
+//                            cursor.getString(29),
+//                            cursor.getString(30),
+//                            cursor.getString(31),
+//                            cursor.getString(32),
+//                            cursor.getString(33),
+//                            cursor.getString(34)
+//                    )
+//            );
+//
+//        }
+//
+//        adaptermycard = new Custommycard(this, R.layout.itemmycard, arrayListmycard);
+//        listView1.setAdapter(adaptermycard);
 
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS CONTACTS(ID INTEGER PRIMARY KEY AUTOINCREMENT, FIRSTNAME NVARCHAR(100),LASTNAME NVARCHAR(100), COMPANY NVARCHAR(100) )");
 //        sqLite.QueryData("CREATE TABLE IF NOT EXISTS PHONENUMBER(IDNUMBER INTERGER PRIMARY KEY, NUMBERS VNARCHAR(10), NUMBERKIND NVARCHAR(10), IDCONTACTSNUMBER INTEGER REFERENCES CONTACTS(ID) )");
