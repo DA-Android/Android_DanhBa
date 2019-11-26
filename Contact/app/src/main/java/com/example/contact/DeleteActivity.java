@@ -561,6 +561,7 @@ public class DeleteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateToSQLite();
+
                 finish();
             }
         });
