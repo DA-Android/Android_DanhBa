@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 //        sqLite.Insertdate("20/05/1998","",6);
 //        sqLite.Insertemail("@hufi",6);
 
-        Toast.makeText(MainActivity.this, "insert thanh cong", LENGTH_SHORT).show();
         Cursor cursor= sqLite.GetData("SELECT * FROM PEOPLE");
        //Cursor cursor=sqLite.GetData("DELETE FROM PEOPLE");
         while (cursor.moveToNext()){
