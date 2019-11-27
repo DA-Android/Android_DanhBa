@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         btn_them = findViewById(R.id.them);
         listView =(ListView) findViewById(R.id.danhsach);
-        listView1=findViewById(R.id.mycard);
+        //listView1=findViewById(R.id.mycard);
         arrayList=new ArrayList<people>();
         arrayListmycard=new ArrayList<people>();
         SQLite sqLite;

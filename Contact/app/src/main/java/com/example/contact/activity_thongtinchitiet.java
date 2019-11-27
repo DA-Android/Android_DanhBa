@@ -456,7 +456,8 @@ public class activity_thongtinchitiet extends AppCompatActivity {
         btn_GPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q="+textViewdc.getText());
+                Intent intent = new Intent(Intent.ACTION_VIEW,gmmIntentUri);
                 intent.setPackage("com.google.android.apps.maps");
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);
